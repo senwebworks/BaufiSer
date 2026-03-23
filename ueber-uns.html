@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Über uns | Baufinanz Service</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .page-header { background: var(--primary-color); color: var(--white); padding: 120px 0 60px; text-align: center; }
+        .page-header h1 { color: var(--white); font-size: 3rem; margin-bottom: 1rem; }
+        .content-section { padding: 4rem 0; }
+        
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-bottom: 6rem; }
+        .about-grid.reverse { direction: rtl; }
+        .about-grid.reverse > * { direction: ltr; }
+        
+        .about-text h2 { margin-bottom: 1.5rem; font-size: 2.25rem; }
+        .about-text p { margin-bottom: 1.5rem; font-size: 1.125rem; color: var(--text-main); line-height: 1.8; }
+        .about-image img { width: 100%; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); }
+        
+        .stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin: 4rem 0; text-align: center; }
+        .stat-card { background: var(--white); padding: 2rem; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); border: 1px solid var(--border-color); }
+        .stat-card h3 { font-size: 3rem; color: var(--accent-color); margin-bottom: 0.5rem; }
+        
+        @media (max-width: 768px) {
+            .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .about-grid.reverse { direction: ltr; }
+            .stat-grid { grid-template-columns: 1fr; }
+        }
+
+        .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 4rem; }
+        .value-card { background: var(--bg-light); padding: 2rem; border-radius: var(--radius-md); text-align: center; border: 1px solid var(--border-color); }
+        .value-icon { width: 64px; height: 64px; background: rgba(249, 115, 22, 0.1); color: var(--accent-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; }
+        .value-card h3 { margin-bottom: 1rem; font-size: 1.25rem; }
+        .value-card p { color: var(--text-main); font-size: 1rem; line-height: 1.6; }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <i data-lucide="percent"></i>
+                <span>Baufinanz Service</span>
+            </a>
+            <nav class="main-nav" id="main-nav">
+                <a href="index.html#so-funktionierts">So funktioniert's</a>
+                <a href="bauzinsen-aktuell.html">Aktuelle Zinsen</a>
+                <a href="foerdermittel.html">Fördermittel</a>
+                <a href="rechner.html">Rechner</a>
+            </nav>
+            <div class="header-cta" id="header-cta">
+                <a href="index.html#hero-form" class="btn btn-outline" style="border-width: 2px;">Angebot einholen</a>
+            </div>
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Menu Toggle">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Wer wir sind</h1>
+                <p style="font-size: 1.25rem; max-width: 800px; margin: 0 auto; color: rgba(255,255,255,0.8);">Wir digitalisieren und vereinfachen die Immobilienfinanzierung. Zertifiziert, unabhängig und immer auf der Seite unserer Kunden.</p>
+            </div>
+        </section>
+
+        <section class="content-section container">
+            
+            <div class="about-grid">
+                <div class="about-text">
+                    <span class="section-tag">Unsere Mission</span>
+                    <h2>Transparenz in einem undurchsichtigen Markt</h2>
+                    <p>Die Entscheidung für eine Baufinanzierung ist oft eine der größten finanziellen Entscheidungen im Leben. Dennoch ist der Markt für fast alle Verbraucher extrem undurchsichtig, geprägt von verschachtelten Klauseln und Banken, die nur ihre eigenen (teuren) Produkte verkaufen wollen.</p>
+                    <p>Genau hier setzt Baufinanz Service an. Wir glauben fest daran, dass jeder Zugang zu unabhängiger, fairer und vor allem zu 100% transparenter Beratung haben sollte. Unser Ziel ist es, in einem überholten Bankensystem die Macht zurück in die Hände der Käufer zu legen.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Unser Team bei der Arbeit">
+                </div>
+            </div>
+
+            <div class="stat-grid">
+                <div class="stat-card">
+                    <h3>>400</h3>
+                    <p>Angebundene Banken</p>
+                </div>
+                <div class="stat-card">
+                    <h3>10.000+</h3>
+                    <p>Erfolgreiche Finanzierungen</p>
+                </div>
+                <div class="stat-card">
+                    <h3>TÜV</h3>
+                    <p>Geprüfter Datenschutz</p>
+                </div>
+            </div>
+
+            <div class="about-grid reverse">
+                <div class="about-text">
+                    <span class="section-tag">Der Gründer</span>
+                    <h2>Sicherheit durch echte Expertise</h2>
+                    <p>Baufinanz Service wurde mit der klaren Vision gegründet, die verstaubte Finanzbranche zu modernisieren. Durch das weitreichende Partnernetzwerk, das unser Inhaber Kaan Sen über viele Jahre in der Immobilien- und Finanzwelt aufgebaut hat, haben wir exklusiven Zugang zu sogenannten "Wholesale"-Konditionen.</p>
+                    <p>Das bedeutet für Sie: Wir erhalten bei vielen Großbanken Mengenrabatte, die wir direkt an Sie als Zinsersparnis weitergeben. Eine Beratung bei uns schlägt fast immer das direkte Angebot bei der Bank vor Ort.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Beratungsgespräch">
+                </div>
+            </div>
+
+            <div class="text-center" style="margin-top: 6rem;">
+                <h2>Unsere Werte</h2>
+                <p style="color: var(--text-light); max-width: 600px; margin: 1rem auto 0;">Was uns jeden Tag antreibt, um für Sie die absolut besten Marktkonditionen zu erzielen.</p>
+            </div>
+
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon"><i data-lucide="shield"></i></div>
+                    <h3>100% Unabhängigkeit</h3>
+                    <p>Wir arbeiten provisionsbasiert für über 400 Banken, sind aber an keine einzige gebunden. Der Algorithmus ist blind für Markennamen und sucht nur den tiefsten Zins.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon"><i data-lucide="heart"></i></div>
+                    <h3>Radikaler Kundenfokus</h3>
+                    <p>Ihre Bedürfnisse, Ihr Risikoprofil und Ihre persönliche familiäre Situation stehen bei uns im Mittelpunkt jeder einzelnen Beratung. Schema F gibt es bei uns nicht.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon"><i data-lucide="zap"></i></div>
+                    <h3>Digitale Schnelligkeit</h3>
+                    <p>Wir wissen, dass gute Immobilien oft in Tagen verkauft sind. Unsere digitalen Antragsprozesse sorgen für Machbarkeitszertifikate innerhalb kürzester Zeit.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon"><i data-lucide="award"></i></div>
+                    <h3>Geprüfte IHK-Expertise</h3>
+                    <p>Unsere Berater sind keine Quereinsteiger, sondern tief mit der Materie vertraute und zertifizierte Experten (nach § 34i GewO).</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 6rem; padding: 4rem; background: var(--bg-light); border-radius: var(--radius-lg); border: 1px solid var(--border-color);">
+                <h2>Lernen Sie uns in einem unverbindlichen Gespräch kennen.</h2>
+                <a href="index.html#hero-form" class="btn btn-primary btn-large" style="margin-top: 2rem; font-size: 1.125rem;">Jetzt kostenlose Anfrage stellen <i data-lucide="arrow-right"></i></a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <a href="index.html" class="logo" style="text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; color: var(--white); font-weight: 700; font-size: 1.5rem;">
+                    <i data-lucide="percent" style="color: var(--accent-color);"></i>
+                    <span>Baufinanz Service</span>
+                </a>
+                <p style="margin-top: 1rem;">Deutschlands smarter und unabhängiger Weg zur perfekten Baufinanzierung. Vergleichen Sie über 400 Banken kostenfrei.</p>
+            </div>
+            
+            <div class="footer-links">
+                <div class="link-col">
+                    <h4>Unternehmen</h4>
+                    <a href="ueber-uns.html">Über uns</a>
+                    <a href="qualitaetsanspruch.html">Qualitätsanspruch</a>
+                    <a href="fuer-berater.html">Für Berater</a>
+                    <a href="faq.html">FAQ</a>
+                </div>
+                <div class="link-col">
+                    <h4>Service & Rechner</h4>
+                    <a href="rechner.html">Baufinanzierungsrechner</a>
+                    <a href="bauzinsen-aktuell.html">Bauzinsen aktuell</a>
+                    <a href="foerdermittel.html">Fördermittel-Check</a>
+                    <a href="foerdermittel-abfrage.html">Fördermittel Abfrage</a>
+                    <a href="quiz-haus-leisten.html">Haus-Leisten Quiz</a>
+                </div>
+                <div class="link-col">
+                    <h4>Wissen & Ratgeber</h4>
+                    <a href="ratgeber-eigenkapital.html">Ratgeber: Eigenkapital</a>
+                    <a href="ratgeber-nebenkosten.html">Kaufnebenkosten Rechner</a>
+                    <a href="ratgeber-wieviel-haus.html">Wie viel Haus kann ich mir leisten?</a>
+                    <a href="ratgeber-ohne-eigenkapital.html">Ohne Eigenkapital finanzieren</a>
+                    <a href="ratgeber-selbststaendige.html">Finanzierung für Selbstständige</a>
+                </div>
+                <div class="link-col">
+                    <h4>Tipps & Rechtliches</h4>
+                    <a href="ratgeber-zinsen-tipps.html">Tipps für günstigere Zinsen</a>
+                    <a href="checkliste-hauskauf.html">Checkliste Hauskauf (PDF)</a>
+                    <a href="zinsen-sichern-anleitung.html">Zins-Sichern Guide (PDF)</a>
+                    <a href="impressum.html" style="margin-top: 1rem;">Impressum</a>
+                    <a href="datenschutz.html">Datenschutz</a>
+                    <a href="agb.html">AGB</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="global-disclaimer">
+            <div class="container">
+                <p>Wichtiger Hinweis: Alle Informationen und Berechnungen auf dieser Website sind unverbindlich und stellen kein konkretes Angebot dar. Die tatsächlichen Konditionen hängen von Ihrer individuellen Bonität ab.</p>
+            </div>
+        </div>
+
+        <div class="container footer-bottom">
+            <p>&copy; 2026 Baufinanz Service. Alle Rechte vorbehalten.</p>
+            <p>Website erstellt durch <a href="https://sen-webworks.de" target="_blank" style="color: var(--accent-color); font-weight: 500;">Sen Webworks</a></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>lucide.createIcons();</script>
+</body>
+</html>

@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baufinanz Service | Kostenlose Baufinanzierung vergleichen & beste Zinsen sichern</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <meta name="description" content="Vergleichen Sie Angebote von über 400 Banken und sichern Sie sich Top-Zinsen für Ihre Baufinanzierung. Kostenlos und unverbindlich.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <i data-lucide="percent"></i>
+                <span>Baufinanz Service</span>
+            </a>
+            <nav class="main-nav" id="main-nav">
+                <a href="index.html#so-funktionierts">So funktioniert's</a>
+                <a href="bauzinsen-aktuell.html">Aktuelle Zinsen</a>
+                <a href="foerdermittel.html">Fördermittel</a>
+                <a href="rechner.html">Rechner</a>
+            </nav>
+            <div class="header-cta" id="header-cta">
+                <a href="index.html#hero-form" class="btn btn-outline" style="border-width: 2px;">Angebot einholen</a>
+            </div>
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Menu Toggle">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section mit Formular -->
+        <section class="hero" id="hero-form">
+            <div class="hero-bg"></div>
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <h1>Kostenlose Baufinanzierung vergleichen & beste Zinsen sichern</h1>
+                    <p>Unverbindliche Angebote von geprüften Finanzierungspartnern.</p>
+                    
+                    <div class="trust-elements">
+                        <div class="trust-badge-small"><i data-lucide="check-circle"></i> 100% kostenlos & unverbindlich</div>
+                        <div class="trust-badge-small"><i data-lucide="shield"></i> SCHUFA-neutral</div>
+                        <div class="trust-badge-small"><i data-lucide="lock"></i> Daten sicher (DSGVO-konform)</div>
+                    </div>
+                    
+                    <a href="#hero-form" class="btn btn-primary" style="margin-top: 1rem; font-size: 1.125rem;">Jetzt Finanzierung berechnen <i data-lucide="arrow-right"></i></a>
+                </div>
+
+                <div class="hero-form-wrapper">
+                    <form id="lead-form" class="lead-form">
+                        <div class="form-progress">
+                            <div class="progress-bar" id="progress-bar"></div>
+                        </div>
+
+                        <!-- Schritt 1: Vorhaben -->
+                        <div class="form-step active" id="step-1">
+                            <h3>Was ist Ihr Vorhaben?</h3>
+                            <div class="options-grid">
+                                <label class="option-card">
+                                    <input type="radio" name="vorhaben" value="kauf" required>
+                                    <div class="card-content">
+                                        <i data-lucide="key"></i>
+                                        <span>Kauf einer Immobilie</span>
+                                    </div>
+                                </label>
+                                <label class="option-card">
+                                    <input type="radio" name="vorhaben" value="neubau">
+                                    <div class="card-content">
+                                        <i data-lucide="hammer"></i>
+                                        <span>Neubau vorbereiten</span>
+                                    </div>
+                                </label>
+                                <label class="option-card">
+                                    <input type="radio" name="vorhaben" value="umschuldung">
+                                    <div class="card-content">
+                                        <i data-lucide="refresh-cw"></i>
+                                        <span>Umschuldung / Anschlussfinanzierung</span>
+                                    </div>
+                                </label>
+                            </div>
+                            <button type="button" class="btn btn-primary btn-next" disabled>Weiter <i data-lucide="arrow-right"></i></button>
+                        </div>
+
+                        <!-- Schritt 2: Finanzale Details (Neu) -->
+                        <div class="form-step" id="step-2">
+                            <h3>Angaben zur Finanzierung</h3>
+                            
+                            <div class="form-group">
+                                <label for="kaufpreis">Kaufpreis / Geplante Darlehenshöhe (€)</label>
+                                <div class="input-with-icon">
+                                    <i data-lucide="euro"></i>
+                                    <input type="number" id="kaufpreis" name="kaufpreis" placeholder="z.B. 450000" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="eigenkapital">Vorhandenes Eigenkapital (€)</label>
+                                <div class="input-with-icon">
+                                    <i data-lucide="piggy-bank"></i>
+                                    <input type="number" id="eigenkapital" name="eigenkapital" placeholder="z.B. 50000">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="einkommen">Verfügbares Haushaltsnettoeinkommen (€)</label>
+                                <div class="input-with-icon">
+                                    <i data-lucide="wallet"></i>
+                                    <input type="number" id="einkommen" name="einkommen" placeholder="z.B. 4500">
+                                </div>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="button" class="btn btn-text btn-prev"><i data-lucide="arrow-left"></i> Zurück</button>
+                                <button type="button" class="btn btn-primary btn-next">Weiter <i data-lucide="arrow-right"></i></button>
+                            </div>
+                        </div>
+
+                        <!-- Schritt 3: Zeitraum und Ort -->
+                        <div class="form-step" id="step-3">
+                            <h3>Weitere Details</h3>
+                            
+                            <div class="form-group">
+                                <label for="kaufdatum">Wann ist die Finanzierung geplant?</label>
+                                <select id="kaufdatum" name="kaufdatum" required>
+                                    <option value="" disabled selected>Bitte auswählen</option>
+                                    <option value="sofort">Konkret geplant (Sofort - 3 Monate)</option>
+                                    <option value="bald">In den nächsten 6 Monaten</option>
+                                    <option value="unklar">Noch unklar / Orientierungsphase</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="zipcode">Postleitzahl oder Ort der Immobilie (Optional)</label>
+                                <div class="input-with-icon">
+                                    <i data-lucide="map-pin"></i>
+                                    <input type="text" id="zipcode" name="zipcode" placeholder="z.B. 10115 Berlin">
+                                </div>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="button" class="btn btn-text btn-prev"><i data-lucide="arrow-left"></i> Zurück</button>
+                                <button type="button" class="btn btn-primary btn-next">Weiter <i data-lucide="arrow-right"></i></button>
+                            </div>
+                        </div>
+
+                        <!-- Schritt 4: Kontakt und DSVGO -->
+                        <div class="form-step" id="step-4">
+                            <h3>Lassen Sie uns Ihre Zinsen berechnen</h3>
+                            <p class="step-desc">Um Ihre unverbindliche Berechnung und die Angebote der Partner zu erhalten, benötigen wir Ihre Kontaktdaten.</p>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="firstname">Vorname</label>
+                                    <input type="text" id="firstname" name="firstname" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastname">Nachname</label>
+                                    <input type="text" id="lastname" name="lastname" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">E-Mail Adresse</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phone">Telefonnummer <span class="text-sm">(Für Rückfragen)</span></label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+
+                            <label class="checkbox-container">
+                                <input type="checkbox" name="consent" checked required>
+                                <span class="checkmark"></span>
+                                <span class="checkbox-text">Ich bin damit einverstanden, dass meine Daten an ausgewählte Finanzierungspartner vermittelt werden, um mir Angebote zu unterbreiten. (Jederzeit widerrufbar)</span>
+                            </label>
+
+                            <div class="form-actions">
+                                <button type="button" class="btn btn-text btn-prev"><i data-lucide="arrow-left"></i> Zurück</button>
+                                <button type="submit" class="btn btn-primary">Jetzt Finanzierung berechnen <i data-lucide="check-circle"></i></button>
+                            </div>
+                        </div>
+
+                        <!-- Erfolgsmeldung -->
+                        <div class="form-step" id="step-success">
+                            <div class="success-content">
+                                <div class="success-icon">
+                                    <i data-lucide="check"></i>
+                                </div>
+                                <h3>Vielen Dank für Ihre Daten!</h3>
+                                <p>Wir prüfen Ihre Angaben und berechnen die besten Konditionen. Ein Berater wird sich in Kürze mit Ihnen in Verbindung setzen.</p>
+                                <a href="quiz-haus-leisten.html" class="btn btn-outline" style="margin-top: 2rem;">Probieren Sie in der Zwischenzeit unser Haus-Leisten Quiz!</a>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Partner Banner (Trust Elements) -->
+        <div class="partners-banner" style="background: var(--white); padding: 2.5rem 0; border-bottom: 1px solid var(--border-color); border-top: 1px solid var(--border-color);">
+            <div class="container text-center">
+                <p style="font-weight: 600; color: var(--text-light); margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 1px; font-size: 0.875rem;">Wir vergleichen 100% kostenlos tagesaktuelle Zinsen von über 400 Partnerbanken</p>
+                <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 3rem; opacity: 0.6; filter: grayscale(100%);">
+                    <span style="font-size: 1.5rem; font-weight: 700; color: #1e293b; display: flex; align-items: center; gap: 0.25rem;"><i data-lucide="building"></i> Sparkasse</span>
+                    <span style="font-size: 1.5rem; font-weight: 700; color: #1e293b; display: flex; align-items: center; gap: 0.25rem;"><i data-lucide="briefcase"></i> Commerzbank</span>
+                    <span style="font-size: 1.5rem; font-weight: 700; color: #1e293b; display: flex; align-items: center; gap: 0.25rem;"><i data-lucide="landmark"></i> Deutsche Bank</span>
+                    <span style="font-size: 1.5rem; font-weight: 700; color: #1e293b; display: flex; align-items: center; gap: 0.25rem;"><i data-lucide="banknote"></i> ING</span>
+                    <span style="font-size: 1.5rem; font-weight: 700; color: #1e293b; display: flex; align-items: center; gap: 0.25rem;"><i data-lucide="leaf"></i> KfW-Förderbank</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Customer Reviews -->
+        <section class="reviews-section">
+            <div class="container">
+                <div class="text-center">
+                    <span class="section-tag">Erfahrungen</span>
+                    <h2>Über 10.000 Kunden vertrauen uns</h2>
+                    <p style="color: var(--text-light); font-size: 1.125rem;">Zufriedene Bauherren, die mit Baufinanz Service Tausende Euros bei ihrer Finanzierung gespart haben.</p>
+                </div>
+
+                <div class="reviews-grid">
+                    <div class="review-card">
+                        <div class="stars">
+                            <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i>
+                        </div>
+                        <p>"Dank des Vergleichs haben wir ein Angebot gefunden, das über 0,4 % günstiger war als bei unserer Hausbank. Auf 15 Jahre sparen wir dadurch fast 18.000 €. Wahnsinn!"</p>
+                        <div class="reviewer">
+                            <div class="reviewer-avatar">MJ</div>
+                            <div class="reviewer-info">
+                                <h4>Michael & Julia S.</h4>
+                                <span>Baufinanzierung in Köln</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="stars">
+                            <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i>
+                        </div>
+                        <p>"Sehr kompetente Beratung, völlig unabhängig. Alle Förderprogramme wurden beim Kauf unserer Eigentumswohnung berücksichtigt."</p>
+                        <div class="reviewer">
+                            <div class="reviewer-avatar">TB</div>
+                            <div class="reviewer-info">
+                                <h4>Tim B.</h4>
+                                <span>Wohnungskauf in München</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="stars">
+                            <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i>
+                        </div>
+                        <p>"Schnell, transparent und 100% kostenlos. Ich war anfangs skeptisch, aber der Service hat reibungslos funktioniert. Kann ich jedem Bauherren nur empfehlen."</p>
+                        <div class="reviewer">
+                            <div class="reviewer-avatar">AL</div>
+                            <div class="reviewer-info">
+                                <h4>Anna L.</h4>
+                                <span>Anschlussfinanzierung</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Wie es funktioniert -->
+        <section class="how-it-works" id="so-funktionierts">
+            <div class="container text-center">
+                <span class="section-tag">Einfach & Schnell</span>
+                <h2>In 3 Schritten zur Top-Finanzierung</h2>
+                
+                <div class="steps-grid">
+                    <div class="step-box">
+                        <div class="step-number">1</div>
+                        <div class="step-icon"><i data-lucide="file-edit"></i></div>
+                        <h3>Eckdaten eingeben</h3>
+                        <p>Teilen Sie uns in wenigen Klicks die wichtigsten Angaben zu Ihrem Vorhaben, Kaufpreis und Eigenkapital mit.</p>
+                    </div>
+                    <div class="step-box">
+                        <div class="step-number">2</div>
+                        <div class="step-icon"><i data-lucide="pie-chart"></i></div>
+                        <h3>Angebote vergleichen</h3>
+                        <p>Wir vergleichen die Zinsen und Konditionen von über 400 Partnerbanken für Sie, SCHUFA-neutral.</p>
+                    </div>
+                    <div class="step-box">
+                        <div class="step-number">3</div>
+                        <div class="step-icon"><i data-lucide="award"></i></div>
+                        <h3>Zinsen sichern</h3>
+                        <p>Entscheiden Sie sich unverbindlich für das beste Angebot und sichern Sie sich Top-Zinsen (Stand 20.03.2026).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Vorteile/Vertrauen -->
+        <section class="benefits" id="vorteile">
+            <div class="container">
+                <div class="benefits-content">
+                    <div class="benefits-text">
+                        <span class="section-tag">Ihre Vorteile</span>
+                        <h2>Warum Baufinanz Service der beste Weg ist.</h2>
+                        <p>Die Wahl der richtigen Baufinanzierung spart Ihnen über die Laufzeit oft Zehntausende Euro. Schöpfen Sie aus den Vollen und profitieren Sie von unserer Erfahrung und Unabhängigkeit.</p>
+                        
+                        <ul class="benefits-list">
+                            <li>
+                                <div class="icon-wrap"><i data-lucide="trending-down"></i></div>
+                                <div>
+                                    <h4>Tausende Euros sparen</h4>
+                                    <p>Sogar kleine Zinsunterschiede (z.B. 0,2%) beim unabhängigen Vergleich machen auf 15 Jahre mehrere Tausend Euro aus. Sichern Sie sich garantiert die besten Marktkonditionen.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="icon-wrap"><i data-lucide="shield-check"></i></div>
+                                <div>
+                                    <h4>Unverbindlich & Keine Verpflichtung</h4>
+                                    <p>Alle Beratungen und von uns berechneten Finanzierungskonzepte sind zu 100% unverbindlich. Sie entscheiden völlig frei, ob Sie das Angebot annehmen möchten.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="icon-wrap"><i data-lucide="zap"></i></div>
+                                <div>
+                                    <h4>Schnelle Kreditentscheidung</h4>
+                                    <p>Dank digitaler Prozesse und direkter Bank-Schnittstellen erhalten Sie oft schon innerhalb von 24 Stunden eine erste verlässliche Machbarkeitseinschätzung.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="icon-wrap"><i data-lucide="users"></i></div>
+                                <div>
+                                    <h4>Persönliche Expertenberatung</h4>
+                                    <p>Sie sind nicht allein. Unsere IHK-geprüften Experten begleiten Sie von der ersten Idee bis zur finalen Auszahlung beim Notar.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="benefits-image" style="box-shadow: 0 20px 40px -10px rgba(249, 115, 22, 0.3);">
+                        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Glückliches Paar im neuen Haus" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- CTA Section -->
+        <section class="bottom-cta">
+            <div class="container text-center">
+                <h2>Bereit für Ihre Baufinanzierung?</h2>
+                <p>Verlieren Sie keine Zeit und entdecken Sie jetzt, wie günstig Ihr Wohntraum sein kann.</p>
+                <button class="btn btn-outline" style="background-color: transparent; border-color: white; color: white;" onclick="window.scrollTo({top:0, behavior: 'smooth'})">Jetzt unverbindlich berechnen</button>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <a href="index.html" class="logo" style="text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; color: var(--white); font-weight: 700; font-size: 1.5rem;">
+                    <i data-lucide="percent" style="color: var(--accent-color);"></i>
+                    <span>Baufinanz Service</span>
+                </a>
+                <p style="margin-top: 1rem;">Deutschlands smarter und unabhängiger Weg zur perfekten Baufinanzierung. Vergleichen Sie über 400 Banken kostenfrei.</p>
+            </div>
+            
+            <div class="footer-links">
+                <div class="link-col">
+                    <h4>Unternehmen</h4>
+                    <a href="ueber-uns.html">Über uns</a>
+                    <a href="qualitaetsanspruch.html">Qualitätsanspruch</a>
+                    <a href="fuer-berater.html">Für Berater</a>
+                    <a href="faq.html">FAQ</a>
+                </div>
+                <div class="link-col">
+                    <h4>Service & Rechner</h4>
+                    <a href="rechner.html">Baufinanzierungsrechner</a>
+                    <a href="bauzinsen-aktuell.html">Bauzinsen aktuell</a>
+                    <a href="foerdermittel.html">Fördermittel-Check</a>
+                    <a href="foerdermittel-abfrage.html">Fördermittel Abfrage</a>
+                    <a href="quiz-haus-leisten.html">Haus-Leisten Quiz</a>
+                </div>
+                <div class="link-col">
+                    <h4>Wissen & Ratgeber</h4>
+                    <a href="ratgeber-eigenkapital.html">Ratgeber: Eigenkapital</a>
+                    <a href="ratgeber-nebenkosten.html">Kaufnebenkosten Rechner</a>
+                    <a href="ratgeber-wieviel-haus.html">Wie viel Haus kann ich mir leisten?</a>
+                    <a href="ratgeber-ohne-eigenkapital.html">Ohne Eigenkapital finanzieren</a>
+                    <a href="ratgeber-selbststaendige.html">Finanzierung für Selbstständige</a>
+                </div>
+                <div class="link-col">
+                    <h4>Tipps & Rechtliches</h4>
+                    <a href="ratgeber-zinsen-tipps.html">Tipps für günstigere Zinsen</a>
+                    <a href="checkliste-hauskauf.html">Checkliste Hauskauf (PDF)</a>
+                    <a href="zinsen-sichern-anleitung.html">Zins-Sichern Guide (PDF)</a>
+                    <a href="impressum.html" style="margin-top: 1rem;">Impressum</a>
+                    <a href="datenschutz.html">Datenschutz</a>
+                    <a href="agb.html">AGB</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="global-disclaimer">
+            <div class="container">
+                <p>Wichtiger Hinweis: Alle Informationen und Berechnungen auf dieser Website sind unverbindlich und stellen kein konkretes Angebot dar. Die tatsächlichen Konditionen hängen von Ihrer individuellen Bonität ab.</p>
+            </div>
+        </div>
+
+        <div class="container footer-bottom">
+            <p>&copy; 2026 Baufinanz Service. Alle Rechte vorbehalten.</p>
+            <p>Website erstellt durch <a href="https://sen-webworks.de" target="_blank" style="color: var(--accent-color); font-weight: 500;">Sen Webworks</a></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

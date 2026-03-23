@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fördermittel für Ihre Baufinanzierung | Baufinanz Service</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .page-header { background: var(--primary-color); color: var(--white); padding: 120px 0 60px; text-align: center; }
+        .page-header h1 { color: var(--white); font-size: 3rem; margin-bottom: 1rem; }
+        
+        .content-section { padding: 4rem 0; }
+        
+        .article-content { max-width: 800px; margin: 0 auto; font-size: 1.125rem; }
+        .article-content h2 { font-size: 2rem; margin: 3rem 0 1rem; color: var(--primary-color); }
+        .article-content h3 { font-size: 1.5rem; margin: 2rem 0 1rem; color: var(--primary-color); }
+        .article-content p { margin-bottom: 1.5rem; line-height: 1.8; color: var(--text-main); }
+        
+        .article-image { width: 100%; border-radius: var(--radius-lg); margin: 2rem 0; box-shadow: var(--shadow-md); display: block; border: 1px solid var(--border-color); }
+        
+        .grid-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 2.5rem 0; }
+        .card { background: var(--bg-light); padding: 2rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); }
+        .card-icon { width: 50px; height: 50px; background: rgba(249, 115, 22, 0.1); color: var(--accent-color); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; }
+        .card h3 { margin: 0 0 1rem 0; font-size: 1.25rem; }
+        .card p { font-size: 1rem; margin-bottom: 0; }
+
+        @media (max-width: 768px) {
+            .grid-cards { grid-template-columns: 1fr; }
+        }
+
+        .cta-inline { background: rgba(249, 115, 22, 0.05); border: 2px solid var(--accent-color); padding: 2.5rem; border-radius: var(--radius-lg); text-align: center; margin: 4rem 0; box-shadow: var(--shadow-sm); }
+        .cta-inline h3 { margin-top: 0; color: var(--accent-color); font-size: 1.75rem; }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <i data-lucide="percent"></i>
+                <span>Baufinanz Service</span>
+            </a>
+            <nav class="main-nav" id="main-nav">
+                <a href="index.html#so-funktionierts">So funktioniert's</a>
+                <a href="bauzinsen-aktuell.html">Aktuelle Zinsen</a>
+                <a href="foerdermittel.html">Fördermittel</a>
+                <a href="rechner.html">Rechner</a>
+            </nav>
+            <div class="header-cta" id="header-cta">
+                <a href="index.html#hero-form" class="btn btn-outline" style="border-width: 2px;">Angebot einholen</a>
+            </div>
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Menu Toggle">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Fördermittel & Zuschüsse</h1>
+                <p style="font-size: 1.25rem; color: rgba(255,255,255,0.8);">Verschenken Sie kein Geld vom Staat. Wir zeigen Ihnen, wie Sie Förderprogramme der KfW und Länder optimal in Ihre Finanzierung einbauen.</p>
+            </div>
+        </section>
+
+        <section class="content-section container">
+            <div class="article-content">
+                <p>Der Staat und die Bundesländer greifen Immobilienkäufern und Bauherren in unterschiedlichster Form finanziell unter die Arme. Ziel ist es, den Erwerb von Wohneigentum, energetische Sanierungen und umweltfreundlichen Neubau massiv zu unterstützen. Das Problem: Der Dschungel aus KfW-Programmen, BAFA-Zuschüssen und regionalen Förderbanken ist komplex und ändert sich quasi minütlich.</p>
+
+                <img src="https://images.unsplash.com/photo-1579621970588-a35d0e7ab9b6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Geldscheine und Modellhaus" class="article-image">
+
+                <h2>Die wichtigsten Förderprogramme im Überblick</h2>
+                
+                <div class="grid-cards">
+                    <div class="card">
+                        <div class="card-icon"><i data-lucide="home"></i></div>
+                        <h3>KfW-Wohneigentumsprogramm (124)</h3>
+                        <p>Das Standard-Programm für alle, die eine selbstgenutzte Immobilie kaufen oder bauen möchten. Die KfW vergibt hier extrem zinsgünstige Darlehen bis zu 100.000 € völlig unabhängig von Energieeffizienzklassen.</p>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-icon"><i data-lucide="baby"></i></div>
+                        <h3>Wohneigentum für Familien (300)</h3>
+                        <p>Familien mit unteren bis mittleren Einkommen erhalten exzellente Zinsverbilligungen beim Neubau (bzw. Erstkauf) von hochgradig klimafreundlichen Gebäuden. Abhängig vom Einkommen und der Anzahl der Kinder.</p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-icon"><i data-lucide="leaf"></i></div>
+                        <h3>Klimafreundlicher Neubau (297, 298)</h3>
+                        <p>Wer besonders effizient baut (EH40 Standard und mehr), wird massiv belohnt. Hier fließen die zinsgünstigsten Kredite der KfW. Die Hürden bezüglich Ökobilanz und Nachhaltigkeits-Zertifikaten (QNG) sind jedoch streng.</p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-icon"><i data-lucide="hammer"></i></div>
+                        <h3>Energieeffizient Sanieren (261)</h3>
+                        <p>Sie kaufen einen Bestand-Altbau und wollen tiefgreifend sanieren? Die KfW lockt mit Krediten bis 150.000 € pro Wohneinheit sowie enormen Tilgungszuschüssen (Geld, das Sie nicht zurückzahlen müssen!).</p>
+                    </div>
+                </div>
+
+                <h2>Länderspezifische Förderungen (L-Bank, NRW.Bank etc.)</h2>
+                <p>Oft vergessen Käufer die regionale Ebene. Jedes Bundesland hat seine eigene Förderbank. In Baden-Württemberg vergibt beispielsweise die L-Bank die "Z15-Darlehen", die besonders kinderreiche Familien und Schwellenhaushalte extrem stark subventionieren (teilweise Zinsen um die 1%). Die BayernLabo, die NRW.Bank oder die M-Bank (McPomm) haben ähnliche Programme. Der Teufel steckt hier jedoch in der Antrag-Bürokratie – ein Fehler kann die komplette Förderung kosten.</p>
+
+                <h2>Wann muss ich die Fördermittel beantragen?</h2>
+                <p><strong>Die Goldene Regel der Förderung: Anträge müssen zwingend GESTELLT (und oft bewilligt) werden, BEVOR Sie Verträge unterschreiben.</strong></p>
+                <p>Wenn Sie den Kaufvertrag beim Notar unterzeichnen, bevor Sie die KfW- oder Landesprogramme über die finanzierende Hausbank beantragt haben, verfällt der gesamte Förderanspruch unwiderruflich ("Verbot des vorzeitigen Maßnahmebeginns").</p>
+
+                <div class="cta-inline">
+                    <h3>Machen Sie den Fördermittel-Check!</h3>
+                    <p style="font-size: 1.125rem; margin-bottom: 2rem;">Wissen Sie, auf welche Programme Sie Anspruch haben? Nutzen Sie unsere automatisierte Abfragestrecke, um Ihre Chancen sofort zu prüfen, und lassen Sie uns die Anträge für Sie übernehmen.</p>
+                    <a href="foerdermittel-abfrage.html" class="btn btn-primary btn-large" style="font-size: 1.125rem;"><i data-lucide="search"></i> Jetzt Fördermittel checken</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <a href="index.html" class="logo" style="text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; color: var(--white); font-weight: 700; font-size: 1.5rem;">
+                    <i data-lucide="percent" style="color: var(--accent-color);"></i>
+                    <span>Baufinanz Service</span>
+                </a>
+                <p style="margin-top: 1rem;">Deutschlands smarter und unabhängiger Weg zur perfekten Baufinanzierung. Vergleichen Sie über 400 Banken kostenfrei.</p>
+            </div>
+            
+            <div class="footer-links">
+                <div class="link-col">
+                    <h4>Unternehmen</h4>
+                    <a href="ueber-uns.html">Über uns</a>
+                    <a href="qualitaetsanspruch.html">Qualitätsanspruch</a>
+                    <a href="fuer-berater.html">Für Berater</a>
+                    <a href="faq.html">FAQ</a>
+                </div>
+                <div class="link-col">
+                    <h4>Service & Rechner</h4>
+                    <a href="rechner.html">Baufinanzierungsrechner</a>
+                    <a href="bauzinsen-aktuell.html">Bauzinsen aktuell</a>
+                    <a href="foerdermittel.html">Fördermittel-Check</a>
+                    <a href="foerdermittel-abfrage.html">Fördermittel Abfrage</a>
+                    <a href="quiz-haus-leisten.html">Haus-Leisten Quiz</a>
+                </div>
+                <div class="link-col">
+                    <h4>Wissen & Ratgeber</h4>
+                    <a href="ratgeber-eigenkapital.html">Ratgeber: Eigenkapital</a>
+                    <a href="ratgeber-nebenkosten.html">Kaufnebenkosten Rechner</a>
+                    <a href="ratgeber-wieviel-haus.html">Wie viel Haus kann ich mir leisten?</a>
+                    <a href="ratgeber-ohne-eigenkapital.html">Ohne Eigenkapital finanzieren</a>
+                    <a href="ratgeber-selbststaendige.html">Finanzierung für Selbstständige</a>
+                </div>
+                <div class="link-col">
+                    <h4>Tipps & Rechtliches</h4>
+                    <a href="ratgeber-zinsen-tipps.html">Tipps für günstigere Zinsen</a>
+                    <a href="checkliste-hauskauf.html">Checkliste Hauskauf (PDF)</a>
+                    <a href="zinsen-sichern-anleitung.html">Zins-Sichern Guide (PDF)</a>
+                    <a href="impressum.html" style="margin-top: 1rem;">Impressum</a>
+                    <a href="datenschutz.html">Datenschutz</a>
+                    <a href="agb.html">AGB</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="global-disclaimer">
+            <div class="container">
+                <p>Wichtiger Hinweis: Alle Informationen und Berechnungen auf dieser Website sind unverbindlich und stellen kein konkretes Angebot dar. Die tatsächlichen Konditionen hängen von Ihrer individuellen Bonität ab.</p>
+            </div>
+        </div>
+
+        <div class="container footer-bottom">
+            <p>&copy; 2026 Baufinanz Service. Alle Rechte vorbehalten.</p>
+            <p>Website erstellt durch <a href="https://sen-webworks.de" target="_blank" style="color: var(--accent-color); font-weight: 500;">Sen Webworks</a></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>lucide.createIcons();</script>
+</body>
+</html>

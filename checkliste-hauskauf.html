@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Die ultimative Hauskauf-Checkliste | Baufinanz Service</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .split-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; padding: 6rem 0; align-items: center; max-width: 1100px; margin: 0 auto; }
+        .split-content h1 { font-size: 3rem; margin-bottom: 1.5rem; line-height: 1.2; }
+        .split-content p { font-size: 1.125rem; color: var(--text-main); margin-bottom: 2rem; }
+        .feature-list { list-style: none; padding: 0; margin-bottom: 2rem; }
+        .feature-list li { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; font-weight: 500; }
+        .feature-list i { color: var(--accent-color); }
+        
+        .split-form-container { background: var(--white); padding: 3rem; border-radius: var(--radius-lg); box-shadow: var(--shadow-xl); border: 1px solid var(--border-color); }
+        .split-form-container h3 { margin-bottom: 1.5rem; font-size: 1.5rem; }
+        
+        @media (max-width: 900px) {
+            .split-layout { grid-template-columns: 1fr; gap: 3rem; }
+        }
+    </style>
+</head>
+<body style="background: var(--bg-light);">
+
+    <header class="main-header" style="background: var(--white); border-bottom: 1px solid var(--border-color);">
+        <div class="container header-container">
+            <a href="index.html" class="logo" style="color: var(--primary-color);">
+                <i data-lucide="percent"></i>
+                <span>Baufinanz Service</span>
+            </a>
+            <div class="header-cta">
+                <a href="index.html#hero-form" class="btn btn-outline" style="border-color: var(--primary-color); color: var(--primary-color);">Angebot einholen</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="container split-layout">
+            <div class="split-content">
+                <span class="section-tag" style="background: rgba(249, 115, 22, 0.1); color: var(--accent-color);">Kostenloser PDF-Download</span>
+                <h1>Die ultimative Checkliste für Ihren Hauskauf</h1>
+                <p>Vergessen Sie keine wichtigen Details auf dem Weg zur eigenen Immobilie. Von der Besichtigung über die Finanzierung bis zum Notartermin – mit unserer Checkliste sind Sie perfekt vorbereitet.</p>
+                
+                <ul class="feature-list">
+                    <li><i data-lucide="check-circle-2"></i> Über 50 Prüfpunkte für die Besichtigung</li>
+                    <li><i data-lucide="check-circle-2"></i> Benötigte Unterlagen für die Bank</li>
+                    <li><i data-lucide="check-circle-2"></i> Fallstricke im Kaufvertrag erkennen</li>
+                    <li><i data-lucide="check-circle-2"></i> Zeitplan bis zum Einzug</li>
+                </ul>
+            </div>
+            
+            <div class="split-form-container">
+                <h3>Jetzt kostenlos herunterladen</h3>
+                <form id="download-form" class="lead-form">
+                    <div class="form-group">
+                        <label for="name">Vor- und Nachname</label>
+                        <input type="text" id="name" name="Name" required placeholder="Geben Sie Ihren Namen ein">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-Mail Adresse</label>
+                        <input type="email" id="email" name="Email" required placeholder="Wohin dürfen wir die Checkliste senden?">
+                    </div>
+                    <div class="form-group">
+                        <label for="telefon">Telefonnummer</label>
+                        <input type="tel" id="telefon" name="Telefon" required placeholder="Für optionale Rückfragen">
+                    </div>
+
+                    <label class="checkbox-container">
+                        <input type="checkbox" required checked>
+                        <span class="checkmark"></span>
+                        <span class="checkbox-text" style="font-size: 0.875rem;">Ich stimme zu, dass meine Daten verarbeitet werden und ich den Newsletter sowie Angebote zur Baufinanzierung erhalte. (Unverbindlich)</span>
+                    </label>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem; font-size: 1.125rem;">Checkliste sichern <i data-lucide="download"></i></button>
+                    
+                    <div id="success-msg" style="display: none; text-align: center; margin-top: 1.5rem; padding: 1rem; background: rgba(16,185,129,0.1); border-radius: var(--radius-sm); color: var(--success); font-weight: 500;"></div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <a href="index.html" class="logo" style="text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; color: var(--white); font-weight: 700; font-size: 1.5rem;">
+                    <i data-lucide="percent" style="color: var(--accent-color);"></i>
+                    <span>Baufinanz Service</span>
+                </a>
+                <p style="margin-top: 1rem;">Deutschlands smarter und unabhängiger Weg zur perfekten Baufinanzierung. Vergleichen Sie über 400 Banken kostenfrei.</p>
+            </div>
+            
+            <div class="footer-links">
+                <div class="link-col">
+                    <h4>Unternehmen</h4>
+                    <a href="ueber-uns.html">Über uns</a>
+                    <a href="qualitaetsanspruch.html">Qualitätsanspruch</a>
+                    <a href="fuer-berater.html">Für Berater</a>
+                    <a href="faq.html">FAQ</a>
+                </div>
+                <div class="link-col">
+                    <h4>Service & Rechner</h4>
+                    <a href="rechner.html">Baufinanzierungsrechner</a>
+                    <a href="bauzinsen-aktuell.html">Bauzinsen aktuell</a>
+                    <a href="foerdermittel.html">Fördermittel-Check</a>
+                    <a href="foerdermittel-abfrage.html">Fördermittel Abfrage</a>
+                    <a href="quiz-haus-leisten.html">Haus-Leisten Quiz</a>
+                </div>
+                <div class="link-col">
+                    <h4>Wissen & Ratgeber</h4>
+                    <a href="ratgeber-eigenkapital.html">Ratgeber: Eigenkapital</a>
+                    <a href="ratgeber-nebenkosten.html">Kaufnebenkosten Rechner</a>
+                    <a href="ratgeber-wieviel-haus.html">Wie viel Haus kann ich mir leisten?</a>
+                    <a href="ratgeber-ohne-eigenkapital.html">Ohne Eigenkapital finanzieren</a>
+                    <a href="ratgeber-selbststaendige.html">Finanzierung für Selbstständige</a>
+                </div>
+                <div class="link-col">
+                    <h4>Tipps & Rechtliches</h4>
+                    <a href="ratgeber-zinsen-tipps.html">Tipps für günstigere Zinsen</a>
+                    <a href="checkliste-hauskauf.html">Checkliste Hauskauf (PDF)</a>
+                    <a href="zinsen-sichern-anleitung.html">Zins-Sichern Guide (PDF)</a>
+                    <a href="impressum.html" style="margin-top: 1rem;">Impressum</a>
+                    <a href="datenschutz.html">Datenschutz</a>
+                    <a href="agb.html">AGB</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="global-disclaimer">
+            <div class="container">
+                <p>Wichtiger Hinweis: Alle Informationen und Berechnungen auf dieser Website sind unverbindlich und stellen kein konkretes Angebot dar. Die tatsächlichen Konditionen hängen von Ihrer individuellen Bonität ab.</p>
+            </div>
+        </div>
+
+        <div class="container footer-bottom">
+            <p>&copy; 2026 Baufinanz Service. Alle Rechte vorbehalten.</p>
+            <p>Website erstellt durch <a href="https://sen-webworks.de" target="_blank" style="color: var(--accent-color); font-weight: 500;">Sen Webworks</a></p>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        document.getElementById('download-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = this.querySelector('button[type="submit"]');
+            btn.innerHTML = '<i data-lucide="loader-2" class="spin"></i> Wird gesendet...';
+            lucide.createIcons();
+            btn.disabled = true;
+            
+            const fd = new FormData(this);
+            const dataStr = Array.from(fd.entries()).map(x => `${x[0]}: ${x[1]}`).join('%0D%0A');
+            fetch('https://formsubmit.co/ajax/kontakt@baufinanz-service.de', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                body: JSON.stringify({ _subject: 'Lead: Checkliste Hauskauf', ...Object.fromEntries(fd) })
+            })
+            .then(res => res.json())
+            .then(data => {
+                btn.style.display = 'none';
+                document.getElementById('success-msg').innerHTML = 'Vielen Dank! <br><br><a href="checkliste.pdf" download="checkliste.pdf" class="btn btn-primary" style="color:white; text-decoration:none; display:inline-block; margin-top:10px;">PDF Herunterladen <i data-lucide="download"></i></a>';
+                document.getElementById('success-msg').style.display = 'block';
+                lucide.createIcons();
+            })
+            .catch(err => {
+                btn.style.display = 'none';
+                document.getElementById('success-msg').innerHTML = 'Vielen Dank! <br><br><a href="checkliste.pdf" download="checkliste.pdf" class="btn btn-primary" style="color:white; text-decoration:none; display:inline-block; margin-top:10px;">PDF Herunterladen <i data-lucide="download"></i></a>';
+                document.getElementById('success-msg').style.display = 'block';
+                lucide.createIcons();
+            });
+        });
+    </script>
+</body>
+</html>

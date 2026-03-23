@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fördermittel Abfrage | Baufinanz Service</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .page-header { background: var(--bg-light); color: var(--primary-color); padding: 120px 0 60px; text-align: center; border-bottom: 1px solid var(--border-color); }
+        .page-header h1 { font-size: 3rem; margin-bottom: 1rem; }
+        
+        .form-section { padding: 4rem 0 6rem; background: var(--white); }
+        .form-container { max-width: 700px; margin: 0 auto; background: var(--white); border: 1px solid var(--border-color); padding: 3rem; border-radius: var(--radius-lg); box-shadow: var(--shadow-md); }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <i data-lucide="percent"></i>
+                <span>Baufinanz Service</span>
+            </a>
+            <nav class="main-nav" id="main-nav">
+                <a href="index.html#so-funktionierts">So funktioniert's</a>
+                <a href="bauzinsen-aktuell.html">Aktuelle Zinsen</a>
+                <a href="foerdermittel.html">Fördermittel</a>
+                <a href="rechner.html">Rechner</a>
+            </nav>
+            <div class="header-cta" id="header-cta">
+                <a href="index.html#hero-form" class="btn btn-outline" style="border-width: 2px;">Angebot einholen</a>
+            </div>
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Menu Toggle">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <span class="section-tag">Kostenloser Check</span>
+                <h1>Habe ich Anspruch auf Fördermittel?</h1>
+                <p>Prüfen Sie jetzt, welche KfW-Programme und staatlichen Zuschüsse Ihnen für 2026 zustehen.</p>
+            </div>
+        </section>
+
+        <section class="form-section container">
+            <div class="form-container">
+                <form id="foerdermittel-form" class="lead-form">
+                    <div class="form-progress">
+                        <div class="progress-bar" id="progress-bar" style="width: 0%;"></div>
+                    </div>
+
+                    <!-- Step 1 -->
+                    <div class="form-step active" id="step-1">
+                        <h3>Ihr Projektvorhaben</h3>
+                        <p class="step-desc">Fördermittel unterscheiden sich maßgeblich je nach Vorhaben.</p>
+                        <div class="options-grid">
+                            <label class="option-card">
+                                <input type="radio" name="projekt" value="kauf_bestand" required>
+                                <div class="card-content">
+                                    <i data-lucide="home"></i>
+                                    <span>Kauf einer Bestandsimmobilie</span>
+                                </div>
+                            </label>
+                            <label class="option-card">
+                                <input type="radio" name="projekt" value="neubau">
+                                <div class="card-content">
+                                    <i data-lucide="hammer"></i>
+                                    <span>Bau einer neuen Immobilie</span>
+                                </div>
+                            </label>
+                            <label class="option-card">
+                                <input type="radio" name="projekt" value="sanierung">
+                                <div class="card-content">
+                                    <i data-lucide="wrench"></i>
+                                    <span>Energetische Sanierung / Modernisierung</span>
+                                </div>
+                            </label>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-primary btn-next" disabled>Weiter <i data-lucide="arrow-right"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="form-step" id="step-2">
+                        <h3>Familie & Einkommen</h3>
+                        <p class="step-desc">Einige Programme wie "Wohneigentum für Familien" hängen von Einkommen und Kindern ab.</p>
+                        
+                        <div class="form-group">
+                            <label for="kinder">Anzahl der minderjährigen Kinder im Haushalt</label>
+                            <select id="kinder" name="kinder" required>
+                                <option value="" disabled selected>Bitte auswählen</option>
+                                <option value="0">Keine Kinder</option>
+                                <option value="1">1 Kind</option>
+                                <option value="2">2 Kinder</option>
+                                <option value="3plus">3 oder mehr Kinder</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="haushaltseinkommen">Geschätztes Haushaltsnettoeinkommen pro Jahr (€)</label>
+                            <div class="input-with-icon">
+                                <i data-lucide="wallet"></i>
+                                <input type="number" id="haushaltseinkommen" name="haushaltseinkommen" placeholder="z.B. 65000" required>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-text btn-prev"><i data-lucide="arrow-left"></i> Zurück</button>
+                            <button type="button" class="btn btn-primary btn-next">Weiter <i data-lucide="arrow-right"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="form-step" id="step-3">
+                        <h3>Energetischer Standard</h3>
+                        <p class="step-desc">Besonders effiziente Immobilien erhalten die meiste Förderung.</p>
+                        
+                        <div class="form-group">
+                            <label for="energie">Erreicht das Haus einen hohen Energiestandard? (z.B. Effizienzhaus 40)</label>
+                            <select id="energie" name="energie" required>
+                                <option value="" disabled selected>Bitte auswählen</option>
+                                <option value="ja">Ja, höchster Standard (KfW 40/55)</option>
+                                <option value="nein">Nein / normales Bestandsgebäude</option>
+                                <option value="weissnicht">Weiß ich nicht</option>
+                            </select>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-text btn-prev"><i data-lucide="arrow-left"></i> Zurück</button>
+                            <button type="button" class="btn btn-primary btn-next">Weiter <i data-lucide="arrow-right"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="form-step" id="step-4">
+                        <h3>Kontaktdaten für Ihre Fördermittelauswertung</h3>
+                        <p class="step-desc">Wir prüfen Ihre Angaben unverbindlich und senden Ihnen eine Übersicht möglicher Fördergelder.</p>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="vorname">Vorname</label>
+                                <input type="text" id="vorname" name="vorname" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="nachname">Nachname</label>
+                                <input type="text" id="nachname" name="nachname" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">E-Mail</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="telefon">Telefon</label>
+                            <input type="tel" id="telefon" name="telefon" required>
+                        </div>
+
+                        <label class="checkbox-container">
+                            <input type="checkbox" name="consent" checked required>
+                            <span class="checkmark"></span>
+                            <span class="checkbox-text">Ich bin einverstanden, dass meine Daten verarbeitet und an Fördermittelexperten zur Beratung übermittelt werden. (Unverbindlich)</span>
+                        </label>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-text btn-prev"><i data-lucide="arrow-left"></i> Zurück</button>
+                            <button type="submit" class="btn btn-primary">Auswertung anfordern <i data-lucide="check-circle"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Success -->
+                    <div class="form-step" id="step-success">
+                        <div class="success-content" style="text-align: center; padding: 2rem 0;">
+                            <div class="success-icon" style="width:80px; height:80px; background:rgba(16,185,129,0.1); color:var(--success); border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 1.5rem;">
+                                <i data-lucide="check" style="width:40px; height:40px;"></i>
+                            </div>
+                            <h3>Anfrage erfolgreich!</h3>
+                            <p>Unsere Experten prüfen nun Ihre Förderchancen. Wir melden uns in Kürze telefonisch bei Ihnen.</p>
+                            <a href="quiz-haus-leisten.html" class="btn btn-outline" style="margin-top: 1rem;">Zum Finanzierungs-Quiz</a>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <a href="index.html" class="logo" style="text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; color: var(--white); font-weight: 700; font-size: 1.5rem;">
+                    <i data-lucide="percent" style="color: var(--accent-color);"></i>
+                    <span>Baufinanz Service</span>
+                </a>
+                <p style="margin-top: 1rem;">Deutschlands smarter und unabhängiger Weg zur perfekten Baufinanzierung. Vergleichen Sie über 400 Banken kostenfrei.</p>
+            </div>
+            
+            <div class="footer-links">
+                <div class="link-col">
+                    <h4>Unternehmen</h4>
+                    <a href="ueber-uns.html">Über uns</a>
+                    <a href="qualitaetsanspruch.html">Qualitätsanspruch</a>
+                    <a href="fuer-berater.html">Für Berater</a>
+                    <a href="faq.html">FAQ</a>
+                </div>
+                <div class="link-col">
+                    <h4>Service & Rechner</h4>
+                    <a href="rechner.html">Baufinanzierungsrechner</a>
+                    <a href="bauzinsen-aktuell.html">Bauzinsen aktuell</a>
+                    <a href="foerdermittel.html">Fördermittel-Check</a>
+                    <a href="foerdermittel-abfrage.html">Fördermittel Abfrage</a>
+                    <a href="quiz-haus-leisten.html">Haus-Leisten Quiz</a>
+                </div>
+                <div class="link-col">
+                    <h4>Wissen & Ratgeber</h4>
+                    <a href="ratgeber-eigenkapital.html">Ratgeber: Eigenkapital</a>
+                    <a href="ratgeber-nebenkosten.html">Kaufnebenkosten Rechner</a>
+                    <a href="ratgeber-wieviel-haus.html">Wie viel Haus kann ich mir leisten?</a>
+                    <a href="ratgeber-ohne-eigenkapital.html">Ohne Eigenkapital finanzieren</a>
+                    <a href="ratgeber-selbststaendige.html">Finanzierung für Selbstständige</a>
+                </div>
+                <div class="link-col">
+                    <h4>Tipps & Rechtliches</h4>
+                    <a href="ratgeber-zinsen-tipps.html">Tipps für günstigere Zinsen</a>
+                    <a href="checkliste-hauskauf.html">Checkliste Hauskauf (PDF)</a>
+                    <a href="zinsen-sichern-anleitung.html">Zins-Sichern Guide (PDF)</a>
+                    <a href="impressum.html" style="margin-top: 1rem;">Impressum</a>
+                    <a href="datenschutz.html">Datenschutz</a>
+                    <a href="agb.html">AGB</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="global-disclaimer">
+            <div class="container">
+                <p>Wichtiger Hinweis: Alle Informationen und Berechnungen auf dieser Website sind unverbindlich und stellen kein konkretes Angebot dar. Die tatsächlichen Konditionen hängen von Ihrer individuellen Bonität ab.</p>
+            </div>
+        </div>
+
+        <div class="container footer-bottom">
+            <p>&copy; 2026 Baufinanz Service. Alle Rechte vorbehalten.</p>
+            <p>Website erstellt durch <a href="https://sen-webworks.de" target="_blank" style="color: var(--accent-color); font-weight: 500;">Sen Webworks</a></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

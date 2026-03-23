@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ratgeber: Den Tilgungsplan verstehen | Baufinanz Service</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <meta name="description" content="Wie funktioniert die Tilgung beim Hauskauf? Alles über anfängliche Tilgung, Annuitätendarlehen und Sondertilgungen.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .article-header { background: var(--bg-light); padding: 120px 0 60px; text-align: center; border-bottom: 1px solid var(--border-color); }
+        .article-header h1 { font-size: 3rem; margin-bottom: 1rem; color: var(--primary-color); }
+        .article-header .meta { color: var(--text-light); font-size: 0.875rem; margin-top: 1rem; }
+        .content-section { padding: 4rem 0; max-width: 800px; margin: 0 auto; font-size: 1.125rem; line-height: 1.8; color: var(--text-main); }
+        .content-section h2 { margin-top: 3rem; margin-bottom: 1rem; color: var(--primary-color); font-size: 2rem; }
+        .content-section p { margin-bottom: 1.5rem; }
+        .article-image { border-radius: var(--radius-md); width: 100%; height: auto; margin: 2rem 0; box-shadow: var(--shadow-sm); }
+        
+        .chart-mockup { background: var(--white); border: 1px solid var(--border-color); padding: 2rem; border-radius: var(--radius-md); margin: 2rem 0; text-align: center; }
+        .chart-bar { height: 20px; border-radius: 10px; margin-bottom: 1rem; display: flex; overflow: hidden; }
+        .chart-bar .zins { background: var(--danger); transition: width 0.3s; }
+        .chart-bar .tilgung { background: var(--success); transition: width 0.3s; }
+        .chart-labels { display: flex; justify-content: space-between; font-size: 0.875rem; color: var(--text-light); }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <i data-lucide="percent"></i>
+                <span>Baufinanz Service</span>
+            </a>
+            <nav class="main-nav" id="main-nav">
+                <a href="index.html#so-funktionierts">So funktioniert's</a>
+                <a href="bauzinsen-aktuell.html">Aktuelle Zinsen</a>
+                <a href="foerdermittel.html">Fördermittel</a>
+                <a href="rechner.html">Rechner</a>
+            </nav>
+            <div class="header-cta" id="header-cta">
+                <a href="index.html#hero-form" class="btn btn-outline" style="border-width: 2px;">Angebot einholen</a>
+            </div>
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Menu Toggle">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="article-header">
+            <div class="container">
+                <span class="section-tag">Ratgeber Baufinanzierung</span>
+                <h1>Den Tilgungsplan richtig verstehen</h1>
+                <div class="meta">Stand: 20.03.2026 | Lesezeit: ca. 5 Minuten</div>
+            </div>
+        </section>
+
+        <section class="content-section container">
+            <p>Die monatliche Rate für Ihr Traumhaus setzt sich aus zwei komplett unterschiedlichen Bausteinen zusammen: den Zinsen und der Tilgung. Wer diesen Mechanismus (das Prinzip des sogenannten Annuitätendarlehens) versteht, kann über die Jahre zehntausende Euros sparen.</p>
+
+            <h2>Zins und Tilgung: Was ist der Unterschied?</h2>
+            <p>Die <strong>Zinsen</strong> sind die "Miete", die Sie an die Bank für das geliehene Geld zahlen. Alles, was in den Zinsanteil fließt, ist für Sie verloren. Die <strong>Tilgung</strong> hingegen ist die reine Rückzahlung Ihrer eigentlichen Kreditsumme. Jeder Euro Tilgung macht das Haus also ein Stückchen mehr zu "Ihrem" Haus.</p>
+
+            <div class="chart-mockup">
+                <h4 style="margin-top:0; margin-bottom: 1.5rem; text-align:left;">Verschiebung innerhalb der Monatsrate (Annuität)</h4>
+                
+                <p style="text-align:left; font-size:0.875rem; margin-bottom: 0.5rem; color:var(--text-light);">Jahr 1: Viel Zins, wenig Tilgung</p>
+                <div class="chart-bar">
+                    <div class="zins" title="Zinsanteil" style="width: 70%;"></div>
+                    <div class="tilgung" title="Tilgungsanteil" style="width: 30%;"></div>
+                </div>
+                
+                <p style="text-align:left; font-size:0.875rem; margin-top:2rem; margin-bottom: 0.5rem; color:var(--text-light);">Jahr 10: Weniger Zins, deutlich mehr Tilgung</p>
+                <div class="chart-bar">
+                    <div class="zins" title="Zinsanteil" style="width: 40%;"></div>
+                    <div class="tilgung" title="Tilgungsanteil" style="width: 60%;"></div>
+                </div>
+
+                <div class="chart-labels" style="margin-top: 1rem;">
+                    <span><span style="color:var(--danger)">■</span> Zins (Kosten)</span>
+                    <span><span style="color:var(--success)">■</span> Tilgung (Ihr Eigentum)</span>
+                </div>
+            </div>
+
+            <h2>Der Trick des Annuitätendarlehens</h2>
+            <p>Bei Baufinanzierungen ist die monatliche Rate (Annuität) immer gleich hoch. Doch das Verhältnis innerhalb der Rate verschiebt sich jeden Monat! Da Sie mit jeder Rate ein wenig Tilgung leisten, schrumpft Ihre Restschuld. Im nächsten Monat berechnet die Bank die Zinsen nur noch auf diese minimal gesunkene Restschuld. Der Zinsanteil sinkt also leicht. Da Ihre Rate jedoch konstant bleibt, packt die Bank diesen "gesparten" Zinsanteil automatisch auf die Tilgung obendrauf.</p>
+            <p>Ergebnis: Im ersten Jahr zahlen Sie fast nur Zinsen. Im 15. Jahr tilgen Sie mit derselben Rate gewaltige Beträge, während der Zinsanteil marginal ist.</p>
+
+            <h2>Wie hoch sollte die "anfängliche Tilgung" sein?</h2>
+            <p>Banken fordern meist eine Mindesttilgung von 1 oder 2 Prozent. Wir empfehlen dringend, (sofern es die Haushaltskasse zulässt) eine Tilgung von <strong>mindestens 2 bis 3 Prozent</strong> zu wählen. Bei nur 1 Prozent Tilgung dauert es oft über 40 Jahre, bis Sie schuldenfrei sind. Bei 3 Prozent sind Sie schon nach etwa 20-25 Jahren (abhängig vom Zins) fertig.</p>
+
+            <h2>Turbo aktivieren durch Sondertilgungen</h2>
+            <p>Eine Sondertilgung ist der beste Feind der Bank und Ihr bester Freund. Sie fließt zu 100 % in die Tilgung und verringert Ihre Restschuld augenblicklich. Der Zinsfluss wird dadurch sofort, massiv und für den gesamten Rest der Laufzeit nach unten gedrückt. Sichern Sie sich im Vertrag immer das Recht auf kostenfreie Sondertilgungen (üblich sind 5 % der Darlehenssumme pro Jahr).</p>
+
+            <div style="margin-top: 4rem; text-align: center; padding-top: 3rem; border-top: 1px solid var(--border-color);">
+                <h2>Tilgung live simulieren</h2>
+                <p>Spielen Sie mit verschiedenen Tilgungs-Parametern und sehen Sie direkt, wie sich die Laufzeit Ihres Kredits verkürzt.</p>
+                <a href="rechner.html" class="btn btn-primary btn-large" style="margin-top: 1rem; padding: 1rem 2rem; font-size: 1.25rem;">Zum Tilgungsrechner <i data-lucide="arrow-right"></i></a>
+            </div>
+
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <a href="index.html" class="logo" style="text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; color: var(--white); font-weight: 700; font-size: 1.5rem;">
+                    <i data-lucide="percent" style="color: var(--accent-color);"></i>
+                    <span>Baufinanz Service</span>
+                </a>
+                <p style="margin-top: 1rem;">Deutschlands smarter und unabhängiger Weg zur perfekten Baufinanzierung. Vergleichen Sie über 400 Banken kostenfrei.</p>
+            </div>
+            
+            <div class="footer-links">
+                <div class="link-col">
+                    <h4>Unternehmen</h4>
+                    <a href="ueber-uns.html">Über uns</a>
+                    <a href="qualitaetsanspruch.html">Qualitätsanspruch</a>
+                    <a href="fuer-berater.html">Für Berater</a>
+                    <a href="faq.html">FAQ</a>
+                </div>
+                <div class="link-col">
+                    <h4>Service & Rechner</h4>
+                    <a href="rechner.html">Baufinanzierungsrechner</a>
+                    <a href="bauzinsen-aktuell.html">Bauzinsen aktuell</a>
+                    <a href="foerdermittel.html">Fördermittel-Check</a>
+                    <a href="foerdermittel-abfrage.html">Fördermittel Abfrage</a>
+                    <a href="quiz-haus-leisten.html">Haus-Leisten Quiz</a>
+                </div>
+                <div class="link-col">
+                    <h4>Wissen & Ratgeber</h4>
+                    <a href="ratgeber-eigenkapital.html">Ratgeber: Eigenkapital</a>
+                    <a href="ratgeber-nebenkosten.html">Kaufnebenkosten Rechner</a>
+                    <a href="ratgeber-wieviel-haus.html">Wie viel Haus kann ich mir leisten?</a>
+                    <a href="ratgeber-ohne-eigenkapital.html">Ohne Eigenkapital finanzieren</a>
+                    <a href="ratgeber-selbststaendige.html">Finanzierung für Selbstständige</a>
+                </div>
+                <div class="link-col">
+                    <h4>Tipps & Rechtliches</h4>
+                    <a href="ratgeber-zinsen-tipps.html">Tipps für günstigere Zinsen</a>
+                    <a href="checkliste-hauskauf.html">Checkliste Hauskauf (PDF)</a>
+                    <a href="zinsen-sichern-anleitung.html">Zins-Sichern Guide (PDF)</a>
+                    <a href="impressum.html" style="margin-top: 1rem;">Impressum</a>
+                    <a href="datenschutz.html">Datenschutz</a>
+                    <a href="agb.html">AGB</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="global-disclaimer">
+            <div class="container">
+                <p>Wichtiger Hinweis: Alle Informationen und Berechnungen auf dieser Website sind unverbindlich und stellen kein konkretes Angebot dar. Die tatsächlichen Konditionen hängen von Ihrer individuellen Bonität ab.</p>
+            </div>
+        </div>
+
+        <div class="container footer-bottom">
+            <p>&copy; 2026 Baufinanz Service. Alle Rechte vorbehalten.</p>
+            <p>Website erstellt durch <a href="https://sen-webworks.de" target="_blank" style="color: var(--accent-color); font-weight: 500;">Sen Webworks</a></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>lucide.createIcons();</script>
+</body>
+</html>

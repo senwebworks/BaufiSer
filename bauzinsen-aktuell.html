@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bauzinsen aktuell (Stand 2026) | Baufinanz Service</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .page-header { background: var(--primary-color); color: var(--white); padding: 120px 0 60px; text-align: center; }
+        .page-header h1 { color: var(--white); font-size: 3rem; margin-bottom: 1rem; }
+        .content-section { padding: 4rem 0; }
+        
+        .article-content { max-width: 800px; margin: 0 auto; font-size: 1.125rem; }
+        .article-content h2 { font-size: 2rem; margin: 3rem 0 1rem; color: var(--primary-color); }
+        .article-content h3 { font-size: 1.5rem; margin: 2rem 0 1rem; color: var(--primary-color); }
+        .article-content p { margin-bottom: 1.5rem; line-height: 1.8; color: var(--text-main); }
+        .article-content ul { margin-bottom: 1.5rem; padding-left: 1.5rem; list-style-type: none; }
+        .article-content li { margin-bottom: 0.75rem; position: relative; }
+        .article-content li::before { content: "✓"; color: var(--accent-color); font-weight: bold; position: absolute; left: -1.5rem; }
+        
+        .article-image { width: 100%; border-radius: var(--radius-lg); margin: 2rem 0; box-shadow: var(--shadow-md); display: block; }
+
+        .rates-table { width: 100%; border-collapse: collapse; margin: 2rem 0; background: var(--white); box-shadow: var(--shadow-md); border-radius: var(--radius-md); overflow: hidden; }
+        .rates-table th, .rates-table td { padding: 1.25rem; text-align: left; border-bottom: 1px solid var(--border-color); }
+        .rates-table th { background: var(--bg-light); font-weight: 600; color: var(--primary-color); font-size: 1.125rem; }
+        .rates-table tr:last-child td { border-bottom: none; }
+        .rates-table .highlight { color: var(--accent-color); font-weight: 700; font-size: 1.5rem; }
+
+        .cta-inline { background: rgba(249, 115, 22, 0.05); border: 2px dashed var(--accent-color); padding: 2.5rem; border-radius: var(--radius-lg); text-align: center; margin: 4rem 0; }
+        .cta-inline h3 { margin-top: 0; color: var(--accent-color); font-size: 1.75rem; }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <i data-lucide="percent"></i>
+                <span>Baufinanz Service</span>
+            </a>
+            <nav class="main-nav" id="main-nav">
+                <a href="index.html#so-funktionierts">So funktioniert's</a>
+                <a href="bauzinsen-aktuell.html">Aktuelle Zinsen</a>
+                <a href="foerdermittel.html">Fördermittel</a>
+                <a href="rechner.html">Rechner</a>
+            </nav>
+            <div class="header-cta" id="header-cta">
+                <a href="index.html#hero-form" class="btn btn-outline" style="border-width: 2px;">Angebot einholen</a>
+            </div>
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Menu Toggle">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Bauzinsen Aktuell</h1>
+                <p style="font-size: 1.25rem; color: rgba(255,255,255,0.8);">Verfolgen Sie die Zinsentwicklung und sichern Sie sich Top-Konditionen für das laufende Jahr.</p>
+            </div>
+        </section>
+
+        <section class="content-section container">
+            <div class="article-content">
+                <div style="display: flex; gap: 1rem; align-items: center; justify-content: space-between; margin-bottom: 2rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1rem;">
+                    <p class="text-sm" style="margin:0;"><strong>Stand:</strong> 20.03.2026</p>
+                    <p class="text-sm" style="margin:0;"><strong>Lesezeit:</strong> ca. 5 Minuten</p>
+                </div>
+
+                <p>Die Entwicklung der Bauzinsen ist für jeden angehenden Immobilienbesitzer von zentraler Bedeutung. Bereits winzige Zinsänderungen nach dem Komma können über die Jahre hinweg eine Ersparnis oder Mehrbelastung von mehreren zehntausend Euro bedeuten. Wir geben Ihnen einen aktuellen, schonungslos ehrlichen Überblick über die Zinslandschaft 2026.</p>
+                
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Zinsentwicklung Diagramm auf Laptop" class="article-image">
+
+                <h2>Aktuelle Konditionen im Überblick</h2>
+                <p>Die Zinsen für Baukredite hängen heute stärker denn je von der gewählten Zinsbindungsdauer, dem eingebrachten Eigenkapital, und dem energetischen Zustand der Immobilie ab. Hier präsentieren wir Ihnen beispielhafte Top-Konditionen aus unserem Vergleich von über 400 Partnerbanken (Stand heute):</p>
+
+                <table class="rates-table">
+                    <thead>
+                        <tr>
+                            <th>Zinsbindung</th>
+                            <th>Effektiver Jahreszins ab</th>
+                            <th>Sollzins gebunden ab</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>5 Jahre</td>
+                            <td class="highlight">3,14 %</td>
+                            <td>3,09 %</td>
+                        </tr>
+                        <tr>
+                            <td>10 Jahre</td>
+                            <td class="highlight">3,25 %</td>
+                            <td>3,21 %</td>
+                        </tr>
+                        <tr>
+                            <td>15 Jahre</td>
+                            <td class="highlight">3,45 %</td>
+                            <td>3,40 %</td>
+                        </tr>
+                        <tr>
+                            <td>20 Jahre</td>
+                            <td class="highlight">3,58 %</td>
+                            <td>3,52 %</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="text-sm" style="color: var(--text-light); font-size: 0.8rem; margin-top: -1.5rem; margin-bottom: 3rem; background: var(--bg-light); padding: 1rem; border-radius: var(--radius-sm);">*Repräsentatives Beispiel gemäß § 6a PAngV. Annahmen: Kaufpreis 500.000 €, Darlehensbetrag 300.000 € (60% Beleihungauslauf), 2% anfängliche Tilgung, einwandfreie Bonität, Angestellter. Die tatsächlichen Zinsen können je nach persönlicher Situation abweichen.</p>
+
+                <h2>Prognose: Gehen die Zinsen wieder runter?</h2>
+                <p>Nach den historischen Zinskapriolen der letzten Jahre hat sich der Markt weitestgehend stabilisiert. Die Europäische Zentralbank (EZB) hat durch kontrollierte Leitzinssenkungen den Markt wieder etwas entspannt. Experten der großen Forschungs- und Wirtschaftsinstitute gehen derzeit von einer <strong>hartnäckigen Seitwärtsbewegung</strong> mit leichten, tagesaktuellen Schwankungen aus. Ein rapider Abfall der Zinsen auf das toxische Niveau von null Prozent, das wir noch vor einigen Jahren gesehen haben, gilt als ökonomisch nicht mehr tragbar und äußerst unwahrscheinlich.</p>
+
+                <div class="cta-inline">
+                    <h3>Kostenloses Zins-Update anfordern</h3>
+                    <p style="font-size: 1.125rem; margin-bottom: 2rem;">Der Markt dreht sich täglich. Lassen Sie unsere System-Algorithmen und menschlichen Experten für Sie wachen. Wir berechnen für Sie ein maßgeschneidertes Profil basierend auf den Zinsen von über 400 Instituten.</p>
+                    <a href="index.html#hero-form" class="btn btn-primary btn-large" style="font-size: 1.125rem;">Jetzt Live-Angebot einholen <i data-lucide="arrow-right"></i></a>
+                </div>
+
+                <h2>Welche Zinsbindung ist jetzt die richtige Strategie?</h2>
+                <p>Die Wahl der Zinsbindung ist im aktuellen Marktumfeld eine kleine Wette auf die Zukunft, kombiniert mit Ihrem ganz persönlichen Risikoprofil.</p>
+                <ul>
+                    <li><strong>Kurze Zinsbindung (5-10 Jahre):</strong> Eignet sich, wenn Sie fest davon ausgehen, dass die Zinsen in Zukunft weiter fallen, oder wenn Sie planen, die Immobilie bald wieder zu veräußern oder das Darlehen in sehr großen Raten (z.B. durch Erbschaften) schnell zurückzuzahlen. Der Vorteil: Sie profitieren aktuell von etwas günstigeren Konditionen.</li>
+                    <li><strong>Lange Zinsbindung (15-20+ Jahre):</strong> Bietet maximale Budgetsicherheit und lässt Sie nachts ruhig schlafen. Ideal für klassische Familienfinanzierungen, Eigennutzung und junge Haushalte. Sie sichern sich das aktuelle, immer noch machbare Zinsniveau langfristig ab und sind vor Zinsschocks bei der Anschlussfinanzierung geschützt.</li>
+                </ul>
+
+                <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Finanzen planen" class="article-image">
+
+                <h2>Insider-Tipps für spürbar günstigere Zinsen</h2>
+                <p>Unabhängig vom allgemeinen Marktumfeld können Sie Ihren individuellen Zinssatz entscheidend beeinflussen, wenn Sie die Spielregeln der Banken kennen:</p>
+                <ul>
+                    <li><strong>Beleihungsauslauf optimieren:</strong> Je geringer der Anteil der Kreditsumme am Gesamtwert, desto geringer das Risiko für die Bank. Brechen Sie "Schwellenwerte" (z.B. genau 80% Beleihung), indem Sie nur 2.000 € mehr Eigenkapital einbringen.</li>
+                    <li><strong>Tilgungssatz hochschrauben:</strong> Wer seinen Kredit durch hohe Anfangstilgung (z.B. 3% statt 2%) schneller zurückzahlt, reduziert das langfristige Risiko der Bank rapide und wird oftmals mit einem extra Zinsrabatt belohnt.</li>
+                    <li><strong>Energetischer Zustand:</strong> Banken hassen "Risiko-Immobilien" mit schlechten Energieklassen (G, H). Eine Immobilie ab Klasse D abwärts bekommt oft schlechtere Konditionen. Im Gegenzug gibt es stark vergünstigte "Grüne Kredite" für Neubauten oder energetisch top-sanierte Häuser (Klassen A+, A, B).</li>
+                    <li><strong>Regionalbanken vs. Direktbanken:</strong> Oftmals haben kleine, regionale Sparkassen oder PSD-Banken in bestimmten Monaten ihre Quoten noch nicht erfüllt und schlagen mit Dumping-Zinsen die großen Direktbank-Platzhirsche. Ein systematischer Marktvergleich (den wir für Sie erledigen) ist daher Pflicht!</li>
+                </ul>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <a href="index.html" class="logo" style="text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; color: var(--white); font-weight: 700; font-size: 1.5rem;">
+                    <i data-lucide="percent" style="color: var(--accent-color);"></i>
+                    <span>Baufinanz Service</span>
+                </a>
+                <p style="margin-top: 1rem;">Deutschlands smarter und unabhängiger Weg zur perfekten Baufinanzierung. Vergleichen Sie über 400 Banken kostenfrei.</p>
+            </div>
+            
+            <div class="footer-links">
+                <div class="link-col">
+                    <h4>Unternehmen</h4>
+                    <a href="ueber-uns.html">Über uns</a>
+                    <a href="qualitaetsanspruch.html">Qualitätsanspruch</a>
+                    <a href="fuer-berater.html">Für Berater</a>
+                    <a href="faq.html">FAQ</a>
+                </div>
+                <div class="link-col">
+                    <h4>Service & Rechner</h4>
+                    <a href="rechner.html">Baufinanzierungsrechner</a>
+                    <a href="bauzinsen-aktuell.html">Bauzinsen aktuell</a>
+                    <a href="foerdermittel.html">Fördermittel-Check</a>
+                    <a href="foerdermittel-abfrage.html">Fördermittel Abfrage</a>
+                    <a href="quiz-haus-leisten.html">Haus-Leisten Quiz</a>
+                </div>
+                <div class="link-col">
+                    <h4>Wissen & Ratgeber</h4>
+                    <a href="ratgeber-eigenkapital.html">Ratgeber: Eigenkapital</a>
+                    <a href="ratgeber-nebenkosten.html">Kaufnebenkosten Rechner</a>
+                    <a href="ratgeber-wieviel-haus.html">Wie viel Haus kann ich mir leisten?</a>
+                    <a href="ratgeber-ohne-eigenkapital.html">Ohne Eigenkapital finanzieren</a>
+                    <a href="ratgeber-selbststaendige.html">Finanzierung für Selbstständige</a>
+                </div>
+                <div class="link-col">
+                    <h4>Tipps & Rechtliches</h4>
+                    <a href="ratgeber-zinsen-tipps.html">Tipps für günstigere Zinsen</a>
+                    <a href="checkliste-hauskauf.html">Checkliste Hauskauf (PDF)</a>
+                    <a href="zinsen-sichern-anleitung.html">Zins-Sichern Guide (PDF)</a>
+                    <a href="impressum.html" style="margin-top: 1rem;">Impressum</a>
+                    <a href="datenschutz.html">Datenschutz</a>
+                    <a href="agb.html">AGB</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="global-disclaimer">
+            <div class="container">
+                <p>Wichtiger Hinweis: Alle Informationen und Berechnungen auf dieser Website sind unverbindlich und stellen kein konkretes Angebot dar. Die tatsächlichen Konditionen hängen von Ihrer individuellen Bonität ab.</p>
+            </div>
+        </div>
+
+        <div class="container footer-bottom">
+            <p>&copy; 2026 Baufinanz Service. Alle Rechte vorbehalten.</p>
+            <p>Website erstellt durch <a href="https://sen-webworks.de" target="_blank" style="color: var(--accent-color); font-weight: 500;">Sen Webworks</a></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>lucide.createIcons();</script>
+</body>
+</html>

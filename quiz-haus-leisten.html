@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kann ich mir ein Haus leisten? | Quiz</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .quiz-section { min-height: 100vh; display: flex; align-items: center; justify-content: center; background: var(--bg-light); padding: 4rem 1rem; }
+        .quiz-container { background: var(--white); border-radius: var(--radius-lg); padding: 3rem; max-width: 600px; width: 100%; box-shadow: var(--shadow-lg); border: 1px solid var(--border-color); text-align: center; }
+        .quiz-logo { margin-bottom: 2rem; display: inline-flex; align-items: center; gap: 0.5rem; color: var(--primary-color); font-weight: 700; font-size: 1.5rem; text-decoration: none; }
+        .quiz-logo i { color: var(--accent-color); }
+        .quiz-container h3 { font-size: 1.75rem; margin-bottom: 1rem; }
+        .quiz-content { padding: 1rem 0; }
+        .quiz-step { display: none; animation: fadeIn 0.4s ease; }
+        .quiz-step.active { display: block; }
+
+        .quiz-input-group { margin-bottom: 2rem; text-align: left;}
+        .quiz-input-group label { display: block; margin-bottom: 0.5rem; font-weight: 500;}
+        .quiz-input-group input { width: 100%; padding: 1rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); font-size: 1.25rem; font-weight: 600; color: var(--primary-color); text-align: center;}
+        .quiz-input-group input:focus { outline: none; border-color: var(--accent-color); }
+        
+        .quiz-progress { height: 6px; background: var(--border-color); border-radius: 3px; margin-bottom: 2rem; }
+        .quiz-bar { height: 100%; background: var(--accent-color); border-radius: 3px; width: 0%; transition: width 0.3s ease; }
+    </style>
+</head>
+<body>
+
+    <section class="quiz-section">
+        <div class="quiz-container">
+            <a href="index.html" class="quiz-logo">
+                <i data-lucide="percent"></i>
+                <span>Baufinanz Service</span>
+            </a>
+
+            <div class="quiz-progress">
+                <div class="quiz-bar" id="q-bar"></div>
+            </div>
+
+            <div class="quiz-content" id="quiz-wrapper">
+                
+                <!-- Intro -->
+                <div class="quiz-step active" id="qs-1">
+                    <h3>Machen Sie den 60-Sekunden Check</h3>
+                    <p style="color: var(--text-light); margin-bottom: 2rem; font-size: 1.125rem;">Finden Sie heraus, wie viel Haus Sie sich bei Ihrem aktuellen Einkommen leisten können – und erhalten Sie im Anschluss eine PDF-Analyse.</p>
+                    <button class="btn btn-primary" onclick="nextStep(2)" style="width: 100%;">Quiz starten <i data-lucide="arrow-right"></i></button>
+                    <a href="index.html" style="display: block; margin-top: 1.5rem; color: var(--text-light); font-size: 0.875rem;">Abbrechen und zurück</a>
+                </div>
+
+                <!-- Q1 -->
+                <div class="quiz-step" id="qs-2">
+                    <h3>Wie hoch ist Ihr Haushaltsnettoeinkommen?</h3>
+                    <p style="color: var(--text-light); margin-bottom: 2rem;">Das gemeinsame Nettoeinkommen pro Monat.</p>
+                    <div class="quiz-input-group">
+                        <input type="number" id="q-einkommen" placeholder="z.B. 4500" value="4500">
+                    </div>
+                    <button class="btn btn-primary" onclick="nextStep(3)" style="width: 100%;">Weiter <i data-lucide="arrow-right"></i></button>
+                </div>
+
+                <!-- Q2 -->
+                <div class="quiz-step" id="qs-3">
+                    <h3>Wie viel Eigenkapital bringen Sie mit?</h3>
+                    <p style="color: var(--text-light); margin-bottom: 2rem;">Sparguthaben, Bausparverträge oder Wertpapiere.</p>
+                    <div class="quiz-input-group">
+                        <input type="number" id="q-eigenkapital" placeholder="z.B. 50000" value="50000">
+                    </div>
+                    <button class="btn btn-text" onclick="nextStep(2)">Zurück</button>
+                    <button class="btn btn-primary" onclick="nextStep(4)">Weiter <i data-lucide="arrow-right"></i></button>
+                </div>
+
+                <!-- Q3 -->
+                <div class="quiz-step" id="qs-4">
+                    <h3>Haben Sie bereits ein konkretes Objekt ins Auge gefasst?</h3>
+                    <div class="options-grid" style="text-align: left;">
+                        <label class="option-card" onclick="setTimeout(()=>nextStep(5), 200)">
+                            <input type="radio" name="konkret">
+                            <div class="card-content">
+                                <span>Ja, ich interessiere mich für ein konkretes Objekt</span>
+                            </div>
+                        </label>
+                        <label class="option-card" onclick="setTimeout(()=>nextStep(5), 200)">
+                            <input type="radio" name="konkret">
+                            <div class="card-content">
+                                <span>Nein, ich suche noch oder plane einen Bau</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Lead Gen Gate -->
+                <div class="quiz-step" id="qs-5">
+                    <h3>Fast geschafft!</h3>
+                    <p style="color: var(--text-light); margin-bottom: 2rem;">Wir haben Ihr Budget anhand der aktuellen Marktlage berechnet (Stand 20.03.2026). Sichern Sie sich jetzt Ihr persönliches Budget-Zertifikat.</p>
+                    
+                    <form onsubmit="submitQuiz(event)">
+                        <div class="quiz-input-group">
+                            <label>Name</label>
+                            <input type="text" required placeholder="Max Mustermann" style="text-align: left;">
+                        </div>
+                        <div class="quiz-input-group">
+                            <label>E-Mail Adresse <span style="font-size:0.75rem; color:var(--text-light);">(Wohin dürfen wir die PDF senden?)</span></label>
+                            <input type="email" required placeholder="max@beispiel.de" style="text-align: left;">
+                        </div>
+                        <div class="quiz-input-group">
+                            <label>Telefonnummer</label>
+                            <input type="tel" required placeholder="Nur für wichtige Rückfragen zur Baufinanzierung" style="text-align: left; font-size:1rem; font-weight:normal;">
+                        </div>
+                        
+                        <label class="checkbox-container" style="text-align:left;">
+                            <input type="checkbox" name="consent" checked required>
+                            <span class="checkmark"></span>
+                            <span class="checkbox-text">Daten freigeben und exklusive Partnerangebote sowie Newsletter erhalten. (Unverbindlich)</span>
+                        </label>
+
+                        <button type="submit" class="btn btn-primary" id="final-btn" style="width: 100%; margin-top: 1rem;">Ergebnis & PDF Zertifikat anfordern</button>
+                    </form>
+                </div>
+
+                <!-- Success -->
+                <div class="quiz-step" id="qs-6">
+                    <div style="width:80px; height:80px; background:rgba(16,185,129,0.1); color:var(--success); border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 1.5rem;">
+                        <i data-lucide="check" style="width:40px; height:40px;"></i>
+                    </div>
+                    <h3>Zertifikat wird generiert...</h3>
+                    <p style="color: var(--text-light); margin-bottom: 2rem;">Vielen Dank für Ihre Angaben. Wir haben Ihnen Ihre persönliche Budget-Analyse an Ihre E-Mail gesendet. Ein Berater wird sich kurzfristig bei Ihnen melden.</p>
+                    <a href="index.html" class="btn btn-outline" style="width: 100%;">Zurück zur Startseite</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <script>
+        lucide.createIcons();
+
+        function nextStep(step) {
+            document.querySelectorAll('.quiz-step').forEach(el => el.classList.remove('active'));
+            document.getElementById('qs-' + step).classList.add('active');
+            
+            let prog = ((step - 1) / 4) * 100;
+            if(step === 6) prog = 100;
+            document.getElementById('q-bar').style.width = prog + '%';
+        }
+
+        function submitQuiz(e) {
+            e.preventDefault();
+            const btn = document.getElementById('final-btn');
+            btn.innerHTML = '<i data-lucide="loader-2" class="spin"></i> Berechne...';
+            lucide.createIcons();
+            btn.disabled = true;
+
+            setTimeout(() => {
+                nextStep(6);
+            }, 1500);
+        }
+    </script>
+</body>
+</html>

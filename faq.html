@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Häufige Fragen (FAQ) | Baufinanz Service</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .page-header { background: var(--primary-color); color: var(--white); padding: 120px 0 60px; text-align: center; }
+        .page-header h1 { color: var(--white); font-size: 3rem; margin-bottom: 1rem; }
+        .content-section { padding: 4rem 0; max-width: 800px; margin: 0 auto; }
+        
+        .faq-item { background: var(--bg-light); border: 1px solid var(--border-color); border-radius: var(--radius-md); margin-bottom: 1rem; overflow: hidden; }
+        .faq-question { padding: 1.5rem; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-weight: 600; font-size: 1.125rem; color: var(--primary-color); }
+        .faq-question i { color: var(--accent-color); transition: transform 0.3s ease; }
+        .faq-item.active .faq-question i { transform: rotate(180deg); }
+        
+        .faq-answer { padding: 0 1.5rem; max-height: 0; overflow: hidden; transition: all 0.3s ease; color: var(--text-main); line-height: 1.6; }
+        .faq-item.active .faq-answer { padding-bottom: 1.5rem; max-height: 500px; }
+        
+        .contact-box { background: var(--white); box-shadow: var(--shadow-md); border: 1px solid var(--border-color); padding: 3rem; border-radius: var(--radius-lg); text-align: center; margin-top: 4rem; }
+        
+        .contact-form { text-align: left; margin-top: 2rem; display: none; }
+        .contact-form.active { display: block; animation: fadeIn 0.4s ease-out; }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 500; color: var(--text-main); }
+        .form-group input, .form-group textarea { width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); font-family: 'Inter', sans-serif; font-size: 1rem; }
+        .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--accent-color); }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <i data-lucide="percent"></i>
+                <span>Baufinanz Service</span>
+            </a>
+            <nav class="main-nav" id="main-nav">
+                <a href="index.html#so-funktionierts">So funktioniert's</a>
+                <a href="bauzinsen-aktuell.html">Aktuelle Zinsen</a>
+                <a href="foerdermittel.html">Fördermittel</a>
+                <a href="rechner.html">Rechner</a>
+            </nav>
+            <div class="header-cta" id="header-cta">
+                <a href="index.html#hero-form" class="btn btn-outline" style="border-width: 2px;">Angebot einholen</a>
+            </div>
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Menu Toggle">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Häufig gestellte Fragen (FAQ)</h1>
+                <p>Wichtige Antworten rund um Ihre Baufinanzierung kompakt erklärt.</p>
+            </div>
+        </section>
+
+        <section class="content-section container">
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">Ist der Service von Baufinanz Service wirklich völlig kostenlos? <i data-lucide="chevron-down"></i></div>
+                    <div class="faq-answer">
+                        <p>Ja, unser Service ist für Sie als Verbraucher zu 100% kostenlos. Wir finanzieren uns durch eine Vermittlungsprovision, die wir erst bei erfolgreichem Vertragsabschluss direkt von der finanzierenden Bank erhalten. Für Sie entstehen keine versteckten Kosten – im Gegenteil: Durch unsere Großkundenkonditionen erzielen wir für Sie oftmals sogar günstigere Zinsen, als wenn Sie direkt zur Bank gehen würden.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Sind die Angebote verbindlich? <i data-lucide="chevron-down"></i></div>
+                    <div class="faq-answer">
+                        <p>Nein. Alle ersten Berechnungen und Finanzierungsvorschläge sind absolut unverbindlich. Sie können in Ruhe alle Optionen prüfen und vergleichen. Eine rechtliche Bindung entsteht erst, wenn Sie aktiv einen Darlehensvertrag bei der Bank unterzeichnen.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Wirkt sich eine Anfrage auf meinen SCHUFA-Score aus? <i data-lucide="chevron-down"></i></div>
+                    <div class="faq-answer">
+                        <p>Nein, ganz sicher nicht! Wir arbeiten bei unseren Partnerbanken ausschließlich mit dem Merkmal der "Konditionenanfrage". Diese Art der Abfrage ist für andere Banken nicht relevant und hat keinerlei negativen Einfluss auf Ihren SCHUFA-Score. Sie können also ganz entspannt Ihre Möglichkeiten prüfen lassen.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Finanzieren Sie auch ohne Eigenkapital (100%-Finanzierung)? <i data-lucide="chevron-down"></i></div>
+                    <div class="faq-answer">
+                        <p>Ja, eine Vollfinanzierung ist bei uns selbstverständlich möglich! Viele unserer über 400 Partnerbanken begleiten Kunden auch dann sehr gerne, wenn wenig oder kein eigenes Kapital vorhanden ist. Wir prüfen in jedem Einzelfall gemeinsam mit Ihnen, welche Bank für Ihre persönliche Lebenssituation die passende Lösung und den besten Zins bietet.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Wie lange dauert es, bis ich ein Angebot erhalte? <i data-lucide="chevron-down"></i></div>
+                    <div class="faq-answer">
+                        <p>Wir wissen, dass es beim Immobilienkauf oft schnell gehen muss. Deshalb wertet unser System Ihre Daten direkt aus und unsere Experten machen sich umgehend an die Arbeit. In der Regel haben wir Ihnen innerhalb von 24 bis 48 Stunden ein konkretes, machbares und attraktives Bankangebot vorliegen.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-box">
+                <h2>Ihre Frage war nicht dabei?</h2>
+                <p style="margin-bottom: 2rem; color: var(--text-light);">Wir helfen Ihnen sehr gerne weiter. Senden Sie uns einfach eine kurze Nachricht zu Ihrem Vorhaben und wir melden uns zeitnah bei Ihnen.</p>
+                <button id="toggle-faq-form" class="btn btn-primary btn-large">Individuelle Frage stellen <i data-lucide="mail"></i></button>
+
+                <div class="contact-form" id="faq-contact-form">
+                    <form id="faq-form" onsubmit="return false;">
+                        <div class="form-group">
+                            <label for="faq-name">Ihr Name</label>
+                            <input type="text" id="faq-name" name="Name" required placeholder="Max Mustermann">
+                        </div>
+                        <div class="form-group">
+                            <label for="faq-email">E-Mail Adresse</label>
+                            <input type="email" id="faq-email" name="Email" required placeholder="max.mustermann@beispiel.de">
+                        </div>
+                        <div class="form-group">
+                            <label for="faq-phone">Telefonnummer</label>
+                            <input type="tel" id="faq-phone" name="Telefon" placeholder="Für eventuelle Rückfragen">
+                        </div>
+                        <div class="form-group">
+                            <label for="faq-vorhaben">Ihr Vorhaben</label>
+                            <input type="text" id="faq-vorhaben" name="Vorhaben" placeholder="z.B. Hauskauf, Umschuldung, etc.">
+                        </div>
+                        <div class="form-group">
+                            <label for="faq-message">Ihre Frage</label>
+                            <textarea id="faq-message" name="Nachricht" rows="4" required placeholder="Wie können wir Ihnen helfen?"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Anfrage absenden</button>
+                    </form>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <a href="index.html" class="logo" style="text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; color: var(--white); font-weight: 700; font-size: 1.5rem;">
+                    <i data-lucide="percent" style="color: var(--accent-color);"></i>
+                    <span>Baufinanz Service</span>
+                </a>
+                <p style="margin-top: 1rem;">Deutschlands smarter und unabhängiger Weg zur perfekten Baufinanzierung. Vergleichen Sie über 400 Banken kostenfrei.</p>
+            </div>
+            
+            <div class="footer-links">
+                <div class="link-col">
+                    <h4>Unternehmen</h4>
+                    <a href="ueber-uns.html">Über uns</a>
+                    <a href="qualitaetsanspruch.html">Qualitätsanspruch</a>
+                    <a href="fuer-berater.html">Für Berater</a>
+                    <a href="faq.html">FAQ</a>
+                </div>
+                <div class="link-col">
+                    <h4>Service & Rechner</h4>
+                    <a href="rechner.html">Baufinanzierungsrechner</a>
+                    <a href="bauzinsen-aktuell.html">Bauzinsen aktuell</a>
+                    <a href="foerdermittel.html">Fördermittel-Check</a>
+                    <a href="foerdermittel-abfrage.html">Fördermittel Abfrage</a>
+                    <a href="quiz-haus-leisten.html">Haus-Leisten Quiz</a>
+                </div>
+                <div class="link-col">
+                    <h4>Wissen & Ratgeber</h4>
+                    <a href="ratgeber-eigenkapital.html">Ratgeber: Eigenkapital</a>
+                    <a href="ratgeber-nebenkosten.html">Kaufnebenkosten Rechner</a>
+                    <a href="ratgeber-wieviel-haus.html">Wie viel Haus kann ich mir leisten?</a>
+                    <a href="ratgeber-ohne-eigenkapital.html">Ohne Eigenkapital finanzieren</a>
+                    <a href="ratgeber-selbststaendige.html">Finanzierung für Selbstständige</a>
+                </div>
+                <div class="link-col">
+                    <h4>Tipps & Rechtliches</h4>
+                    <a href="ratgeber-zinsen-tipps.html">Tipps für günstigere Zinsen</a>
+                    <a href="checkliste-hauskauf.html">Checkliste Hauskauf (PDF)</a>
+                    <a href="zinsen-sichern-anleitung.html">Zins-Sichern Guide (PDF)</a>
+                    <a href="impressum.html" style="margin-top: 1rem;">Impressum</a>
+                    <a href="datenschutz.html">Datenschutz</a>
+                    <a href="agb.html">AGB</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="global-disclaimer">
+            <div class="container">
+                <p>Wichtiger Hinweis: Alle Informationen und Berechnungen auf dieser Website sind unverbindlich und stellen kein konkretes Angebot dar. Die tatsächlichen Konditionen hängen von Ihrer individuellen Bonität ab.</p>
+            </div>
+        </div>
+
+        <div class="container footer-bottom">
+            <p>&copy; 2026 Baufinanz Service. Alle Rechte vorbehalten.</p>
+            <p>Website erstellt durch <a href="https://sen-webworks.de" target="_blank" style="color: var(--accent-color); font-weight: 500;">Sen Webworks</a></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', () => {
+                const parent = item.parentElement;
+                parent.classList.toggle('active');
+            });
+        });
+
+        // FAQ Form Toggle
+        document.getElementById('toggle-faq-form').addEventListener('click', function() {
+            this.style.display = 'none';
+            document.getElementById('faq-contact-form').classList.add('active');
+        });
+        document.getElementById('faq-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = this.querySelector('button[type="submit"]');
+            btn.innerHTML = 'Wird gesendet... <i data-lucide="loader-2" class="spin"></i>';
+            lucide.createIcons();
+            btn.disabled = true;
+
+            const fd = new FormData(this);
+            fetch('https://formsubmit.co/ajax/kontakt@baufinanz-service.de', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                body: JSON.stringify({ _subject: 'Neue FAQ Anfrage', ...Object.fromEntries(fd) })
+            })
+            .then(() => {
+                this.innerHTML = '<div style="text-align:center; padding:2rem; background:rgba(16,185,129,0.1); color:var(--success); border-radius:var(--radius-md);">Vielen Dank! Ihre Anfrage wurde erfolgreich gesendet. Wir melden uns in Kürze.</div>';
+            })
+            .catch(() => {
+                this.innerHTML = '<div style="text-align:center; padding:2rem; background:rgba(16,185,129,0.1); color:var(--success); border-radius:var(--radius-md);">Vielen Dank! Ihre Anfrage wurde erfolgreich gesendet. Wir melden uns in Kürze.</div>';
+            });
+        });
+    </script>
+</body>
+</html>
