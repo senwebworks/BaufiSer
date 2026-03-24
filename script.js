@@ -120,14 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .then(response => response.json())
         .then(data => {
-            // Google Ads Conversion Tracking
-            if(typeof gtag === 'function') {
-                gtag('event', 'conversion', {
-                    'send_to': 'AW-18035977310/xYryCL7Yno4cEN7YnJhD',
-                    'value': 1.0,
-                    'currency': 'EUR'
-                });
-            }
+            if(typeof window.gtag_report_conversion === "function") window.gtag_report_conversion();
 
             const progress = document.querySelector('.form-progress');
             if(progress) progress.style.display = 'none';

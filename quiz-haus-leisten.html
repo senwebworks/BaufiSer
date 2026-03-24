@@ -37,6 +37,25 @@
 
       gtag('config', 'AW-18035977310');
     </script>
+
+    <script>
+    function gtag_report_conversion(url) {
+      var callback = function () {
+        if (typeof(url) != 'undefined') {
+          window.location = url;
+        }
+      };
+      if(typeof gtag === 'function') {
+          gtag('event', 'conversion', {
+              'send_to': 'AW-18035977310/xYryCL7Yno4cEN7YnJhD',
+              'value': 1.0,
+              'currency': 'EUR',
+              'event_callback': callback
+          });
+      }
+      return false;
+    }
+    </script>
 </head>
 <body>
 
@@ -106,18 +125,18 @@
                     <h3>Fast geschafft!</h3>
                     <p style="color: var(--text-light); margin-bottom: 2rem;">Wir haben Ihr Budget anhand der aktuellen Marktlage berechnet (Stand 20.03.2026). Sichern Sie sich jetzt Ihr persönliches Budget-Zertifikat.</p>
                     
-                    <form onsubmit="submitQuiz(event)">
+                    <form id="quiz-form" onsubmit="submitQuiz(event)">
                         <div class="quiz-input-group">
                             <label>Name</label>
-                            <input type="text" required placeholder="Max Mustermann" style="text-align: left;">
+                            <input type="text" name="Name" required placeholder="Max Mustermann" style="text-align: left;">
                         </div>
                         <div class="quiz-input-group">
                             <label>E-Mail Adresse <span style="font-size:0.75rem; color:var(--text-light);">(Wohin dürfen wir die PDF senden?)</span></label>
-                            <input type="email" required placeholder="max@beispiel.de" style="text-align: left;">
+                            <input type="email" name="Email" required placeholder="max@beispiel.de" style="text-align: left;">
                         </div>
                         <div class="quiz-input-group">
                             <label>Telefonnummer</label>
-                            <input type="tel" required placeholder="Nur für wichtige Rückfragen zur Baufinanzierung" style="text-align: left; font-size:1rem; font-weight:normal;">
+                            <input type="tel" name="Telefon" required placeholder="Nur für wichtige Rückfragen zur Baufinanzierung" style="text-align: left; font-size:1rem; font-weight:normal;">
                         </div>
                         
                         <label class="checkbox-container" style="text-align:left;">
@@ -163,9 +182,20 @@
             lucide.createIcons();
             btn.disabled = true;
 
-            setTimeout(() => {
+            const fd = new FormData(document.getElementById('quiz-form'));
+            fetch('https://formsubmit.co/ajax/kontakt@baufinanz-service.de', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                body: JSON.stringify({ _subject: 'Lead: Hausleisten Quiz', ...Object.fromEntries(fd) })
+            })
+            .then(() => {
+                if(typeof window.gtag_report_conversion === "function") window.gtag_report_conversion();
                 nextStep(6);
-            }, 1500);
+            })
+            .catch(() => {
+                if(typeof window.gtag_report_conversion === "function") window.gtag_report_conversion();
+                nextStep(6);
+            });
         }
     </script>
 </body>
