@@ -236,6 +236,14 @@
                 body: JSON.stringify({ _subject: 'Neue FAQ Anfrage', ...Object.fromEntries(fd) })
             })
             .then(() => {
+                // Google Ads Conversion Tracking
+                if(typeof gtag === 'function') {
+                    gtag('event', 'conversion', {
+                        'send_to': 'AW-18035977310/xYryCL7Yno4cEN7YnJhD',
+                        'value': 1.0,
+                        'currency': 'EUR'
+                    });
+                }
                 this.innerHTML = '<div style="text-align:center; padding:2rem; background:rgba(16,185,129,0.1); color:var(--success); border-radius:var(--radius-md);">Vielen Dank! Ihre Anfrage wurde erfolgreich gesendet. Wir melden uns in Kürze.</div>';
             })
             .catch(() => {

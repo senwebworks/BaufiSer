@@ -171,6 +171,14 @@
             })
             .then(res => res.json())
             .then(data => {
+                // Google Ads Conversion Tracking
+                if(typeof gtag === 'function') {
+                    gtag('event', 'conversion', {
+                        'send_to': 'AW-18035977310/xYryCL7Yno4cEN7YnJhD',
+                        'value': 1.0,
+                        'currency': 'EUR'
+                    });
+                }
                 btn.style.display = 'none';
                 document.getElementById('success-msg').innerHTML = 'Vielen Dank! <br><br><a href="ratgeber.pdf" download="ratgeber.pdf" class="btn btn-primary" style="color:white; text-decoration:none; display:inline-block; margin-top:10px;">PDF Herunterladen <i data-lucide="download"></i></a>';
                 document.getElementById('success-msg').style.display = 'block';
