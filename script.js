@@ -165,24 +165,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if(!validateCurrentStep()) {
             return;
         }
-
-        // Safety check: Ensure no required field is empty in the whole form
-        const allRequired = form.querySelectorAll('input[required], select[required]');
-        let missingFields = false;
-        allRequired.forEach(input => {
-            if(input.type === 'radio') {
-                if(!form.querySelector(`input[name="${input.name}"]:checked`)) missingFields = true;
-            } else if(input.type === 'checkbox') {
-                if(!input.checked) missingFields = true;
-            } else if(!input.value.trim()) {
-                missingFields = true;
-            }
-        });
-
-        if(missingFields) {
-            alert('Bitte füllen Sie alle erforderlichen Felder aus, bevor Sie fortfahren.');
-            return;
-        }
         
         const submitBtn = form.querySelector('button[type="submit"]');
         const originalBtnHtml = submitBtn.innerHTML;
@@ -190,7 +172,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if(submitBtn) {
             submitBtn.classList.add('btn-loading');
             submitBtn.innerHTML = 'Wird übermittelt... <i data-lucide="loader-2" class="spin"></i>';
-            // Use pointer-events to prevent multiple clicks without fully disabling the button immediately
             submitBtn.style.pointerEvents = 'none';
             if(window.lucide) lucide.createIcons();
         }
@@ -211,18 +192,26 @@ document.addEventListener('DOMContentLoaded', () => {
             body: JSON.stringify({
                 _subject: subject,
                 _autorespond: autorespondMsg,
+                _replyto: data.email,
                 ...data
             })
         })
-        .then(response => response.json())
-        .then(data => {
-            showSuccess();
+        .then(response => {
+            if (response.ok) {
+                showSuccess();
+            } else {
+                throw new Error('Server hat die Anfrage abgelehnt.');
+            }
         })
         .catch(error => {
-            // Even on error, we show success to the user (since data is usually sent anyway or we want to avoid frustration)
-            // but we'll log it for debugging.
             console.error('Submission error:', error);
-            showSuccess();
+            alert('Leider gab es ein Problem bei der Übertragung Ihrer Daten. Bitte versuchen Sie es in Kürze erneut.');
+            if(submitBtn) {
+                submitBtn.classList.remove('btn-loading');
+                submitBtn.innerHTML = originalBtnHtml;
+                submitBtn.style.pointerEvents = 'auto';
+                if(window.lucide) lucide.createIcons();
+            }
         });
 
         function showSuccess() {
