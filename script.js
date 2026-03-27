@@ -198,8 +198,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const fd = new FormData(form);
         const data = Object.fromEntries(fd);
         
-        // Final subject line
-        const subject = data.vorhaben ? `Neue Anfrage: ${data.vorhaben}` : 'Neue Lead-Anfrage: Baufinanz Service';
+        const autorespondMsg = "Vielen Dank für Ihre Anfrage bei Baufinanz-Service!\n\nEin Berater wird sich in Kürze mit einem passenden Angebot bei Ihnen melden. Bei Fragen können Sie uns jederzeit unter kontakt@baufinanz-service.de erreichen oder den FAQ-Bereich auf unserer Website besuchen.\n\nWir freuen uns darauf, Sie bei Ihrem Vorhaben zu unterstützen!\n\nMit freundlichen Grüßen,\nIhr Baufinanz-Service Team";
+
+        const subject = "Mitteilung zu Ihrer Angebotsanfrage";
 
         fetch('https://formsubmit.co/ajax/kontakt@baufinanz-service.de', {
             method: 'POST',
@@ -209,6 +210,7 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             body: JSON.stringify({
                 _subject: subject,
+                _autorespond: autorespondMsg,
                 ...data
             })
         })
