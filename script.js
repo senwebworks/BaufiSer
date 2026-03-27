@@ -96,6 +96,8 @@ document.addEventListener('DOMContentLoaded', () => {
             if(zipInput && !/^[0-9]{5}$/.test(zipInput.value)) {
                 zipInput.style.borderColor = 'red';
                 return false;
+            } else if(zipInput) {
+                zipInput.style.borderColor = '';
             }
         }
 
@@ -104,15 +106,24 @@ document.addEventListener('DOMContentLoaded', () => {
         inputs.forEach(input => {
             if(input.id === 'zipcode' && currentStep === 4) return;
             
+            let fieldValid = true;
             if(input.type === 'radio') {
                 const name = input.name;
                 const checked = document.querySelector(`input[name="${name}"]:checked`);
-                if(!checked) isValid = false;
+                if(!checked) fieldValid = false;
+            } else if(input.type === 'checkbox') {
+                if(!input.checked) fieldValid = false;
             } else if(!input.value.trim()) {
+                fieldValid = false;
+            }
+
+            if(!fieldValid) {
                 isValid = false;
                 input.style.borderColor = 'red';
+                input.style.backgroundColor = 'rgba(239, 68, 68, 0.05)';
             } else {
                 input.style.borderColor = '';
+                input.style.backgroundColor = '';
             }
         });
         return isValid;
@@ -149,6 +160,29 @@ document.addEventListener('DOMContentLoaded', () => {
     // Handle Form Submission
     form.addEventListener('submit', (e) => {
         e.preventDefault();
+
+        // Final validation check of current step
+        if(!validateCurrentStep()) {
+            return;
+        }
+
+        // Safety check: Ensure no required field is empty in the whole form
+        const allRequired = form.querySelectorAll('input[required], select[required]');
+        let missingFields = false;
+        allRequired.forEach(input => {
+            if(input.type === 'radio') {
+                if(!form.querySelector(`input[name="${input.name}"]:checked`)) missingFields = true;
+            } else if(input.type === 'checkbox') {
+                if(!input.checked) missingFields = true;
+            } else if(!input.value.trim()) {
+                missingFields = true;
+            }
+        });
+
+        if(missingFields) {
+            alert('Bitte füllen Sie alle erforderlichen Felder aus, bevor Sie fortfahren.');
+            return;
+        }
         
         const submitBtn = form.querySelector('button[type="submit"]');
         const originalBtnHtml = submitBtn.innerHTML;
