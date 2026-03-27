@@ -151,12 +151,15 @@
 
                 <!-- Success -->
                 <div class="quiz-step" id="qs-6">
-                    <div style="width:80px; height:80px; background:rgba(16,185,129,0.1); color:var(--success); border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 1.5rem;">
-                        <i data-lucide="check" style="width:40px; height:40px;"></i>
+                    <div class="success-content">
+                        <div class="success-icon-wrap" style="width: 80px; height: 80px; margin-bottom: 2rem;">
+                            <div class="success-icon-circle"></div>
+                            <div class="success-icon-check" style="width: 40px; height: 40px;"><i data-lucide="check"></i></div>
+                        </div>
+                        <h3>Analyse wird generiert...</h3>
+                        <p style="color: var(--text-light); margin-bottom: 2.5rem; font-size: 1.125rem;">Vielen Dank für Ihre Angaben! Wir haben Ihre Budget-Analyse an Ihre E-Mail gesendet. Ein Experte wird sich in Kürze mit Ihnen in Verbindung setzen.</p>
+                        <a href="index.html" class="btn btn-success" style="width: 100%;">Zur Startseite</a>
                     </div>
-                    <h3>Zertifikat wird generiert...</h3>
-                    <p style="color: var(--text-light); margin-bottom: 2rem;">Vielen Dank für Ihre Angaben. Wir haben Ihnen Ihre persönliche Budget-Analyse an Ihre E-Mail gesendet. Ein Berater wird sich kurzfristig bei Ihnen melden.</p>
-                    <a href="index.html" class="btn btn-outline" style="width: 100%;">Zurück zur Startseite</a>
                 </div>
 
             </div>
@@ -191,10 +194,12 @@
             .then(() => {
                 if(typeof window.gtag_report_conversion === "function") window.gtag_report_conversion();
                 nextStep(6);
+                if(window.lucide) lucide.createIcons();
             })
             .catch(() => {
                 if(typeof window.gtag_report_conversion === "function") window.gtag_report_conversion();
                 nextStep(6);
+                if(window.lucide) lucide.createIcons();
             });
         }
     </script>

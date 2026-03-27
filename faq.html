@@ -263,10 +263,28 @@
                         'currency': 'EUR'
                     });
                 }
-                this.innerHTML = '<div style="text-align:center; padding:2rem; background:rgba(16,185,129,0.1); color:var(--success); border-radius:var(--radius-md);">Vielen Dank! Ihre Anfrage wurde erfolgreich gesendet. Wir melden uns in Kürze.</div>';
+                this.innerHTML = `
+                    <div class="success-content" style="padding: 1rem 0;">
+                        <div class="success-icon-wrap" style="width: 70px; height: 70px; margin-bottom: 1.5rem;">
+                            <div class="success-icon-circle"></div>
+                            <div class="success-icon-check" style="width: 35px; height: 35px;"><i data-lucide="check"></i></div>
+                        </div>
+                        <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Vielen Dank!</h3>
+                        <p style="font-size: 1rem; margin-bottom: 0; color: var(--text-main);">Ihre Anfrage wurde erfolgreich gesendet. Wir melden uns in Kürze bei Ihnen.</p>
+                    </div>`;
+                if(window.lucide) lucide.createIcons();
             })
             .catch(() => {
-                this.innerHTML = '<div style="text-align:center; padding:2rem; background:rgba(16,185,129,0.1); color:var(--success); border-radius:var(--radius-md);">Vielen Dank! Ihre Anfrage wurde erfolgreich gesendet. Wir melden uns in Kürze.</div>';
+                this.innerHTML = `
+                    <div class="success-content" style="padding: 1rem 0;">
+                        <div class="success-icon-wrap" style="width: 70px; height: 70px; margin-bottom: 1.5rem;">
+                            <div class="success-icon-circle"></div>
+                            <div class="success-icon-check" style="width: 35px; height: 35px;"><i data-lucide="check"></i></div>
+                        </div>
+                        <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Vielen Dank!</h3>
+                        <p style="font-size: 1rem; margin-bottom: 0; color: var(--text-main);">Ihre Anfrage wurde erfolgreich gesendet. Wir melden uns in Kürze bei Ihnen.</p>
+                    </div>`;
+                if(window.lucide) lucide.createIcons();
             });
         });
     </script>

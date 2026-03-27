@@ -497,21 +497,104 @@ ul {
     text-align: center;
 }
 
+/* Premium Success UI */
 .success-content {
     text-align: center;
-    padding: 2rem 0;
+    padding: 3.5rem 1rem;
+    animation: successSlideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
-.success-icon {
-    width: 80px; height: 80px;
-    background: rgba(16, 185, 129, 0.1);
-    color: var(--success);
+
+@keyframes successSlideUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.success-icon-wrap {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 2.5rem;
+}
+
+.success-icon-circle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #10B981; /* Emerald 500 */
     border-radius: 50%;
+    transform: scale(0);
+    box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+    animation: successScaleIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards 0.2s;
+}
+
+@keyframes successScaleIn {
+    to { transform: scale(1); }
+}
+
+.success-icon-check {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    color: white;
+    width: 60px;
+    height: 60px;
+    animation: successScaleIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards 0.7s;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 1.5rem;
 }
-.success-icon i { width: 40px; height: 40px; }
+
+.success-icon-check svg {
+    width: 100%;
+    height: 100%;
+}
+
+.success-content h3 {
+    font-size: 2.25rem;
+    margin-bottom: 1.25rem;
+    color: var(--primary-color);
+}
+
+.success-content p {
+    font-size: 1.125rem;
+    color: var(--text-light);
+    max-width: 480px;
+    margin: 0 auto 3rem;
+    line-height: 1.7;
+}
+
+.btn-success {
+    background: #10B981;
+    color: white !important;
+    border: none !important;
+    box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3);
+    min-width: 240px;
+}
+
+.btn-success:hover {
+    background: #059669;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+}
+
+/* Loading States */
+.spin {
+    animation: spin 1s linear infinite;
+    display: inline-block;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.btn-loading {
+    pointer-events: none;
+    opacity: 0.8;
+}
 
 /* =========================================
    Reviews Section

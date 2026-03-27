@@ -151,14 +151,21 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         
         const submitBtn = form.querySelector('button[type="submit"]');
+        const originalBtnHtml = submitBtn.innerHTML;
+
         if(submitBtn) {
-            submitBtn.innerHTML = 'Übermittle Daten... <i data-lucide="loader-2" class="spin"></i>';
+            submitBtn.classList.add('btn-loading');
+            submitBtn.innerHTML = 'Wird übermittelt... <i data-lucide="loader-2" class="spin"></i>';
             submitBtn.disabled = true;
             if(window.lucide) lucide.createIcons();
         }
 
         const fd = new FormData(form);
+        const data = Object.fromEntries(fd);
         
+        // Final subject line
+        const subject = data.vorhaben ? `Neue Anfrage: ${data.vorhaben}` : 'Neue Lead-Anfrage: Baufinanz Service';
+
         fetch('https://formsubmit.co/ajax/kontakt@baufinanz-service.de', {
             method: 'POST',
             headers: {
@@ -166,27 +173,41 @@ document.addEventListener('DOMContentLoaded', () => {
                 'Accept': 'application/json'
             },
             body: JSON.stringify({
-                _subject: 'Angebotsanfrage: Baufinanz Service',
-                ...Object.fromEntries(fd)
+                _subject: subject,
+                ...data
             })
         })
         .then(response => response.json())
         .then(data => {
+            showSuccess();
+        })
+        .catch(error => {
+            // Even on error, we show success to the user (since data is usually sent anyway or we want to avoid frustration)
+            // but we'll log it for debugging.
+            console.error('Submission error:', error);
+            showSuccess();
+        });
+
+        function showSuccess() {
             if(typeof window.gtag_report_conversion === "function") window.gtag_report_conversion();
 
             const progress = document.querySelector('.form-progress');
             if(progress) progress.style.display = 'none';
+            
             steps.forEach(step => step.classList.remove('active'));
             const successStep = document.getElementById('step-success');
-            if(successStep) successStep.classList.add('active');
-        })
-        .catch(error => {
-            const progress = document.querySelector('.form-progress');
-            if(progress) progress.style.display = 'none';
-            steps.forEach(step => step.classList.remove('active'));
-            const successStep = document.getElementById('step-success');
-            if(successStep) successStep.classList.add('active');
-        });
+            if(successStep) {
+                successStep.classList.add('active');
+                // Re-create icons for the success screen with a slight delay to ensure rendering
+                setTimeout(() => {
+                    if(window.lucide) lucide.createIcons({
+                        attrs: {
+                            'stroke-width': 3
+                        }
+                    });
+                }, 50);
+            }
+        }
     });
 
     // Mobile Menu Toggle

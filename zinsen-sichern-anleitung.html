@@ -301,14 +301,17 @@
 
                     <!-- Success -->
                     <div class="form-step" id="step-success">
-                        <div class="success-content" style="text-align: center;">
-                            <div class="success-icon"><i data-lucide="check"></i></div>
-                            <h3>Anfrage erfolgreich!</h3>
-                            <p>Vielen Dank. Sie können Ihren Ratgeber nun direkt herunterladen.</p>
-                            <div style="margin-top: 2rem;">
-                                <a href="ratgeber.pdf" download class="btn btn-primary">Ratgeber (PDF) herunterladen <i data-lucide="download"></i></a>
+                        <div class="success-content">
+                            <div class="success-icon-wrap">
+                                <div class="success-icon-circle"></div>
+                                <div class="success-icon-check"><i data-lucide="check"></i></div>
                             </div>
-                            <a href="index.html" class="btn btn-text" style="margin-top: 1rem; display: block;">Zurück zur Startseite</a>
+                            <h3>Anfrage erfolgreich!</h3>
+                            <p>Vielen Dank für Ihr Vertrauen. Sie können Ihren Ratgeber nun direkt über den folgenden Button herunterladen.</p>
+                            <div style="display: flex; flex-direction: column; gap: 1rem; align-items: center;">
+                                <a href="ratgeber.pdf" download class="btn btn-success">Ratgeber (PDF) herunterladen <i data-lucide="download"></i></a>
+                                <a href="index.html" class="btn btn-text" style="margin-top: 0.5rem;">Zurück zur Startseite</a>
+                            </div>
                         </div>
                     </div>
                 </form>

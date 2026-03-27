@@ -434,10 +434,16 @@
     <!-- Erfolgsmeldung -->
     <div class="form-step" id="step-success">
         <div class="success-content">
-            <div class="success-icon"><i data-lucide="check"></i></div>
+            <div class="success-icon-wrap">
+                <div class="success-icon-circle"></div>
+                <div class="success-icon-check"><i data-lucide="check"></i></div>
+            </div>
             <h3>Anfrage erfolgreich!</h3>
-            <p>Ihre Daten wurden sicher übermittelt. Ein Experte prüft Ihre Unterlagen und meldet sich in Kürze.</p>
-            <a href="index.html" class="btn btn-outline" style="margin-top: 2rem;">Zurück zur Startseite</a>
+            <p>Vielen Dank für Ihr Vertrauen. Wir haben Ihre Daten erhalten und ein Experte wird Ihre Anfrage nun priorisiert prüfen.</p>
+            <div style="display: flex; flex-direction: column; gap: 1rem; align-items: center;">
+                <a href="index.html" class="btn btn-success">Zur Startseite</a>
+                <p style="font-size: 0.875rem; color: var(--text-light); margin-top: 0.5rem;">Wir melden uns in Kürze bei Ihnen.</p>
+            </div>
         </div>
     </div>
 </form>
