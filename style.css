@@ -825,3 +825,54 @@ footer {
     fill: var(--accent-color);
     color: var(--accent-color);
 }
+
+
+/* =========================================
+   New Form Steps & Calculator Styles
+========================================= */
+.form-step h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+}
+
+.options-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.card-content {
+    padding: 1rem;
+    text-align: center;
+    flex-direction: column;
+    height: 100%;
+}
+
+.card-content i {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 0.5rem;
+}
+
+.card-content span {
+    font-size: 0.875rem;
+}
+
+.live-calc-result {
+    transition: var(--transition);
+}
+
+.live-calc-result:hover {
+    background: rgba(15, 23, 42, 0.08) !important;
+}
+
+@media (max-width: 600px) {
+    .options-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}

@@ -35,25 +35,6 @@
 
       gtag('config', 'AW-18035977310');
     </script>
-
-    <script>
-    function gtag_report_conversion(url) {
-      var callback = function () {
-        if (typeof(url) != 'undefined') {
-          window.location = url;
-        }
-      };
-      if(typeof gtag === 'function') {
-          gtag('event', 'conversion', {
-              'send_to': 'AW-18035977310/xYryCL7Yno4cEN7YnJhD',
-              'value': 1.0,
-              'currency': 'EUR',
-              'event_callback': callback
-          });
-      }
-      return false;
-    }
-    </script>
 </head>
 <body style="background: var(--bg-light);">
 
@@ -85,30 +66,251 @@
             </div>
             
             <div class="split-form-container">
-                <h3>Sichern Sie sich den Ratgeber</h3>
-                <form id="download-form" class="lead-form">
-                    <div class="form-group">
-                        <label for="name">Vor- und Nachname</label>
-                        <input type="text" id="name" name="Name" required placeholder="Geben Sie Ihren Namen ein">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">E-Mail Adresse</label>
-                        <input type="email" id="email" name="Email" required placeholder="Wohin dürfen wir den Ratgeber senden?">
-                    </div>
-                    <div class="form-group">
-                        <label for="telefon">Telefonnummer</label>
-                        <input type="tel" id="telefon" name="Telefon" required placeholder="Für optionale Rückfragen">
+                <form id="lead-form" class="lead-form">
+                    <div class="form-progress">
+                        <div class="progress-bar" id="progress-bar"></div>
                     </div>
 
-                    <label class="checkbox-container">
-                        <input type="checkbox" required checked>
-                        <span class="checkmark"></span>
-                        <span class="checkbox-text" style="font-size: 0.875rem;">Ich stimme zu, dass meine Daten verarbeitet werden und ich den Newsletter sowie Angebote zur Baufinanzierung erhalte. (Unverbindlich)</span>
-                    </label>
+                    <!-- Step 1: Was möchtest du finanzieren? -->
+                    <div class="form-step active" id="step-1">
+                        <h3>Ihr Finanzierungsvorhaben</h3>
+                        <div class="options-grid">
+                            <label class="option-card">
+                                <input type="radio" name="vorhaben" value="Hauskauf" required>
+                                <div class="card-content"><i data-lucide="home"></i><span>Kauf einer Immobilie</span></div>
+                            </label>
+                            <label class="option-card">
+                                <input type="radio" name="vorhaben" value="Bauvorhaben">
+                                <div class="card-content"><i data-lucide="hammer"></i><span>Eigenes Bauvorhaben</span></div>
+                            </label>
+                            <label class="option-card">
+                                <input type="radio" name="vorhaben" value="Anschlussfinanzierung">
+                                <div class="card-content"><i data-lucide="refresh-cw"></i><span>Anschlussfinanzierung</span></div>
+                            </label>
+                            <label class="option-card">
+                                <input type="radio" name="vorhaben" value="Modernisierung">
+                                <div class="card-content"><i data-lucide="wrench"></i><span>Modernisierung</span></div>
+                            </label>
+                            <label class="option-card">
+                                <input type="radio" name="vorhaben" value="Grundstueck">
+                                <div class="card-content"><i data-lucide="map"></i><span>Grundstück</span></div>
+                            </label>
+                        </div>
+                        <button type="button" class="btn btn-primary btn-next" disabled>Weiter <i data-lucide="arrow-right"></i></button>
+                    </div>
 
-                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem; font-size: 1.125rem;">Ratgeber per E-Mail erhalten <i data-lucide="mail"></i></button>
-                    
-                    <div id="success-msg" style="display: none; text-align: center; margin-top: 1.5rem; padding: 1rem; background: rgba(16,185,129,0.1); border-radius: var(--radius-sm); color: var(--success); font-weight: 500;"></div>
+                    <!-- Step 2: Welche Art des Objekts? -->
+                    <div class="form-step" id="step-2">
+                        <h3>Welche Art des Objekts?</h3>
+                        <div class="options-grid">
+                            <label class="option-card">
+                                <input type="radio" name="objektart" value="Eigentumswohnung" required>
+                                <div class="card-content"><i data-lucide="building-2"></i><span>Eigentumswohnung</span></div>
+                            </label>
+                            <label class="option-card">
+                                <input type="radio" name="objektart" value="Einfamilienhaus">
+                                <div class="card-content"><i data-lucide="home"></i><span>Einfamilienhaus</span></div>
+                            </label>
+                            <label class="option-card">
+                                <input type="radio" name="objektart" value="Mehrfamilienhaus">
+                                <div class="card-content"><i data-lucide="building"></i><span>Mehrfamilienhaus</span></div>
+                            </label>
+                            <label class="option-card">
+                                <input type="radio" name="objektart" value="Wohn- und Geschaeftshaus">
+                                <div class="card-content"><i data-lucide="hotel"></i><span>Wohn- und Geschäftshaus</span></div>
+                            </label>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-text btn-prev"><i data-lucide="arrow-left"></i> Zurück</button>
+                            <button type="button" class="btn btn-primary btn-next" disabled>Weiter <i data-lucide="arrow-right"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Wie wird die Immobilie genutzt? -->
+                    <div class="form-step" id="step-3">
+                        <h3>Wie wird die Immobilie genutzt?</h3>
+                        <div class="options-grid">
+                            <label class="option-card">
+                                <input type="radio" name="nutzung" value="selbstbewohnt" required>
+                                <div class="card-content"><i data-lucide="user"></i><span>selbstbewohnt</span></div>
+                            </label>
+                            <label class="option-card">
+                                <input type="radio" name="nutzung" value="vermietet">
+                                <div class="card-content"><i data-lucide="users"></i><span>vermietet</span></div>
+                            </label>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-text btn-prev"><i data-lucide="arrow-left"></i> Zurück</button>
+                            <button type="button" class="btn btn-primary btn-next" disabled>Weiter <i data-lucide="arrow-right"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Wo befindet sich das Objekt? -->
+                    <div class="form-step" id="step-4">
+                        <h3>Objekt-Standort</h3>
+                        <div class="form-group">
+                            <label for="zipcode">PLZ des Objekts</label>
+                            <div class="input-with-icon">
+                                <i data-lucide="map-pin"></i>
+                                <input type="text" id="zipcode" name="zipcode" placeholder="z.B. 10115" required maxlength="5" pattern="[0-9]{5}">
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-text btn-prev"><i data-lucide="arrow-left"></i> Zurück</button>
+                            <button type="button" class="btn btn-primary btn-next">Weiter <i data-lucide="arrow-right"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Step 5: Hast du deine Wunschimmobilie schon besichtigt? -->
+                    <div class="form-step" id="step-5">
+                        <h3>Status der Immobilie?</h3>
+                        <div class="options-grid">
+                            <label class="option-card">
+                                <input type="radio" name="besichtigungsstatus" value="Objekt gefunden" required>
+                                <div class="card-content"><span>Objekt gefunden</span></div>
+                            </label>
+                            <label class="option-card">
+                                <input type="radio" name="besichtigungsstatus" value="Entscheidung getroffen">
+                                <div class="card-content"><span>Entscheidung gefallen</span></div>
+                            </label>
+                            <label class="option-card">
+                                <input type="radio" name="besichtigungsstatus" value="Notartermin geplant">
+                                <div class="card-content"><span>Notartermin geplant</span></div>
+                            </label>
+                            <label class="option-card">
+                                <input type="radio" name="besichtigungsstatus" value="Auf Objektsuche">
+                                <div class="card-content"><span>noch auf Objektsuche</span></div>
+                            </label>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-text btn-prev"><i data-lucide="arrow-left"></i> Zurück</button>
+                            <button type="button" class="btn btn-primary btn-next" disabled>Weiter <i data-lucide="arrow-right"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Step 6: Finanzierungsbedarfsrechner -->
+                    <div class="form-step" id="step-6">
+                        <h3>Finanzierungsbedarf</h3>
+                        <div class="form-group">
+                            <label for="kaufpreis">Kaufpreis der Immobilie (€)</label>
+                            <div class="input-with-icon">
+                                <i data-lucide="euro"></i>
+                                <input type="number" id="kaufpreis" name="kaufpreis" value="450000" step="5000" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Fällt Maklerprovision an?</label>
+                            <div style="display: flex; gap: 1rem; margin-top: 0.5rem;">
+                                <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                                    <input type="radio" name="makler" value="Ja" checked> Ja
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                                    <input type="radio" name="makler" value="Nein"> Nein
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modernisierung">Modernisierungskosten? (€)</label>
+                            <div class="input-with-icon">
+                                <i data-lucide="wrench"></i>
+                                <input type="number" id="modernisierung" name="modernisierung" value="0" step="1000">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="eigenkapital">Vorhandenes Eigenkapital (€)</label>
+                            <div class="input-with-icon">
+                                <i data-lucide="piggy-bank"></i>
+                                <input type="number" id="eigenkapital" name="eigenkapital" value="50000" step="1000">
+                            </div>
+                        </div>
+                        
+                        <div class="live-calc-result" style="background: rgba(15, 23, 42, 0.05); padding: 1.25rem; border-radius: var(--radius-md); margin: 1.5rem 0; border: 1px solid var(--border-color);">
+                            <p style="font-weight: 600; font-size: 0.875rem; color: var(--text-light); margin-bottom: 0.25rem; text-transform: uppercase; letter-spacing: 0.5px;">Voraussichtlicher Darlehensbedarf</p>
+                            <input type="hidden" name="darlehensbedarf" id="hdn-darlehen">
+            <span id="live-darlehen" style="font-size: 2rem; font-weight: 800; color: var(--primary-color);">0 €</span>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-text btn-prev"><i data-lucide="arrow-left"></i> Zurück</button>
+                            <button type="button" class="btn btn-primary btn-next">Weiter <i data-lucide="arrow-right"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Step 7: Persönliche Daten -->
+                    <div class="form-step" id="step-7">
+                        <h3>Ihre Kontaktdaten</h3>
+                        <div class="form-group">
+                            <label>Anrede</label>
+                            <select name="anrede" required>
+                                <option value="Herr">Herr</option>
+                                <option value="Frau">Frau</option>
+                                <option value="Divers">Divers</option>
+                            </select>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstname">Vorname</label>
+                                <input type="text" name="firstname" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastname">Nachname</label>
+                                <input type="text" name="lastname" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-Mail Adresse</label>
+                            <input type="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Telefonnummer</label>
+                            <input type="tel" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Art der Beschäftigung</label>
+                            <select name="beschaeftigung" required>
+                                <option value="Angestellter">Angestellter / Angestellte</option>
+                                <option value="Beamter">Beamter / Beamte</option>
+                                <option value="Minijob">Minijob</option>
+                                <option value="Selbststaendiger">Selbstständiger</option>
+                                <option value="Freiberufler">Freiberufler</option>
+                                <option value="Rentner">Rentner</option>
+                            </select>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-text btn-prev"><i data-lucide="arrow-left"></i> Zurück</button>
+                            <button type="button" class="btn btn-primary btn-next">Weiter <i data-lucide="arrow-right"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Step 8: Success Goal -->
+                    <div class="form-step" id="step-8">
+                        <h3>Nur noch ein Klick</h3>
+                        <p class="step-desc">Sichern Sie sich jetzt den Ratgeber und vergleichen Sie gleichzeitig über 400 Banken.</p>
+                        
+                        <label class="checkbox-container">
+                            <input type="checkbox" name="consent" checked required>
+                            <span class="checkmark"></span>
+                            <span class="checkbox-text">Ich stimme zu, dass meine Daten verarbeitet werden. (Unverbindlich)</span>
+                        </label>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-text btn-prev"><i data-lucide="arrow-left"></i> Zurück</button>
+                            <button type="submit" class="btn btn-primary">Ratgeber jetzt anfordern <i data-lucide="check-circle"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Success -->
+                    <div class="form-step" id="step-success">
+                        <div class="success-content" style="text-align: center;">
+                            <div class="success-icon"><i data-lucide="check"></i></div>
+                            <h3>Anfrage erfolgreich!</h3>
+                            <p>Vielen Dank. Sie können Ihren Ratgeber nun direkt herunterladen.</p>
+                            <div style="margin-top: 2rem;">
+                                <a href="ratgeber.pdf" download class="btn btn-primary">Ratgeber (PDF) herunterladen <i data-lucide="download"></i></a>
+                            </div>
+                            <a href="index.html" class="btn btn-text" style="margin-top: 1rem; display: block;">Zurück zur Startseite</a>
+                        </div>
+                    </div>
                 </form>
             </div>
         </section>
@@ -121,95 +323,36 @@
                     <i data-lucide="percent" style="color: var(--accent-color);"></i>
                     <span>Baufinanz Service</span>
                 </a>
-                <p style="margin-top: 1rem;">Deutschlands smarter und unabhängiger Weg zur perfekten Baufinanzierung. Vergleichen Sie über 400 Banken kostenfrei.</p>
+                <p style="margin-top: 1rem;">Deutschlands smarter und unabhängiger Weg zur perfekten Baufinanzierung.</p>
             </div>
             
             <div class="footer-links">
                 <div class="link-col">
                     <h4>Unternehmen</h4>
                     <a href="ueber-uns.html">Über uns</a>
-                    <a href="qualitaetsanspruch.html">Qualitätsanspruch</a>
-                    <a href="fuer-berater.html">Für Berater</a>
                     <a href="faq.html">FAQ</a>
                 </div>
                 <div class="link-col">
-                    <h4>Service & Rechner</h4>
+                    <h4>Rechner</h4>
                     <a href="rechner.html">Baufinanzierungsrechner</a>
                     <a href="bauzinsen-aktuell.html">Bauzinsen aktuell</a>
-                    <a href="foerdermittel.html">Fördermittel-Check</a>
-                    <a href="foerdermittel-abfrage.html">Fördermittel Abfrage</a>
-                    <a href="quiz-haus-leisten.html">Haus-Leisten Quiz</a>
                 </div>
                 <div class="link-col">
-                    <h4>Wissen & Ratgeber</h4>
-                    <a href="ratgeber-eigenkapital.html">Ratgeber: Eigenkapital</a>
-                    <a href="ratgeber-nebenkosten.html">Kaufnebenkosten Rechner</a>
-                    <a href="ratgeber-wieviel-haus.html">Wie viel Haus kann ich mir leisten?</a>
-                    <a href="ratgeber-ohne-eigenkapital.html">Ohne Eigenkapital finanzieren</a>
-                    <a href="ratgeber-selbststaendige.html">Finanzierung für Selbstständige</a>
-                </div>
-                <div class="link-col">
-                    <h4>Tipps & Rechtliches</h4>
-                    <a href="ratgeber-zinsen-tipps.html">Tipps für günstigere Zinsen</a>
-                    <a href="checkliste-hauskauf.html">Checkliste Hauskauf (PDF)</a>
-                    <a href="zinsen-sichern-anleitung.html">Zins-Sichern Guide (PDF)</a>
-                    <a href="impressum.html" style="margin-top: 1rem;">Impressum</a>
+                    <h4>Rechtliches</h4>
+                    <a href="impressum.html">Impressum</a>
                     <a href="datenschutz.html">Datenschutz</a>
-                    <a href="agb.html">AGB</a>
                 </div>
             </div>
         </div>
         
-        <div class="global-disclaimer">
-            <div class="container">
-                <p>Wichtiger Hinweis: Alle Informationen und Berechnungen auf dieser Website sind unverbindlich und stellen kein konkretes Angebot dar. Die tatsächlichen Konditionen hängen von Ihrer individuellen Bonität ab.</p>
-            </div>
-        </div>
-
         <div class="container footer-bottom">
             <p>&copy; 2026 Baufinanz Service. Alle Rechte vorbehalten.</p>
-            <p>Website erstellt durch <a href="https://sen-webworks.de" target="_blank" style="color: var(--accent-color); font-weight: 500;">Sen Webworks</a></p>
         </div>
     </footer>
 
+    <script src="script.js"></script>
     <script>
         lucide.createIcons();
-        document.getElementById('download-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const btn = this.querySelector('button[type="submit"]');
-            btn.innerHTML = '<i data-lucide="loader-2" class="spin"></i> Wird gesendet...';
-            lucide.createIcons();
-            btn.disabled = true;
-            
-            const fd = new FormData(this);
-            const dataStr = Array.from(fd.entries()).map(x => `${x[0]}: ${x[1]}`).join('%0D%0A');
-            fetch('https://formsubmit.co/ajax/kontakt@baufinanz-service.de', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-                body: JSON.stringify({ _subject: 'Lead: Zinsen Sichern', ...Object.fromEntries(fd) })
-            })
-            .then(res => res.json())
-            .then(data => {
-                // Google Ads Conversion Tracking
-                if(typeof gtag === 'function') {
-                    gtag('event', 'conversion', {
-                        'send_to': 'AW-18035977310/xYryCL7Yno4cEN7YnJhD',
-                        'value': 1.0,
-                        'currency': 'EUR'
-                    });
-                }
-                btn.style.display = 'none';
-                document.getElementById('success-msg').innerHTML = 'Vielen Dank! <br><br><a href="ratgeber.pdf" download="ratgeber.pdf" class="btn btn-primary" style="color:white; text-decoration:none; display:inline-block; margin-top:10px;">PDF Herunterladen <i data-lucide="download"></i></a>';
-                document.getElementById('success-msg').style.display = 'block';
-                lucide.createIcons();
-            })
-            .catch(err => {
-                btn.style.display = 'none';
-                document.getElementById('success-msg').innerHTML = 'Vielen Dank! <br><br><a href="ratgeber.pdf" download="ratgeber.pdf" class="btn btn-primary" style="color:white; text-decoration:none; display:inline-block; margin-top:10px;">PDF Herunterladen <i data-lucide="download"></i></a>';
-                document.getElementById('success-msg').style.display = 'block';
-                lucide.createIcons();
-            });
-        });
     </script>
 </body>
 </html>

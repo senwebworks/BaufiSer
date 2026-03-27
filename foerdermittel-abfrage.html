@@ -81,66 +81,173 @@
 
         <section class="form-section container">
             <div class="form-container">
-                <form id="foerdermittel-form" class="lead-form">
+                <form id="lead-form" class="lead-form">
                     <div class="form-progress">
-                        <div class="progress-bar" id="progress-bar" style="width: 0%;"></div>
+                        <div class="progress-bar" id="progress-bar"></div>
                     </div>
 
-                    <!-- Step 1 -->
+                    <!-- Step 1: Was möchtest du finanzieren? -->
                     <div class="form-step active" id="step-1">
-                        <h3>Ihr Projektvorhaben</h3>
-                        <p class="step-desc">Fördermittel unterscheiden sich maßgeblich je nach Vorhaben.</p>
+                        <h3>Was möchtest du finanzieren?</h3>
                         <div class="options-grid">
                             <label class="option-card">
-                                <input type="radio" name="projekt" value="kauf_bestand" required>
-                                <div class="card-content">
-                                    <i data-lucide="home"></i>
-                                    <span>Kauf einer Bestandsimmobilie</span>
-                                </div>
+                                <input type="radio" name="vorhaben" value="Hauskauf" required>
+                                <div class="card-content"><i data-lucide="home"></i><span>Kauf einer Immobilie</span></div>
                             </label>
                             <label class="option-card">
-                                <input type="radio" name="projekt" value="neubau">
-                                <div class="card-content">
-                                    <i data-lucide="hammer"></i>
-                                    <span>Bau einer neuen Immobilie</span>
-                                </div>
+                                <input type="radio" name="vorhaben" value="Bauvorhaben">
+                                <div class="card-content"><i data-lucide="hammer"></i><span>Eigenes Bauvorhaben</span></div>
                             </label>
                             <label class="option-card">
-                                <input type="radio" name="projekt" value="sanierung">
-                                <div class="card-content">
-                                    <i data-lucide="wrench"></i>
-                                    <span>Energetische Sanierung / Modernisierung</span>
-                                </div>
+                                <input type="radio" name="vorhaben" value="Anschlussfinanzierung">
+                                <div class="card-content"><i data-lucide="refresh-cw"></i><span>Anschlussfinanzierung</span></div>
+                            </label>
+                            <label class="option-card">
+                                <input type="radio" name="vorhaben" value="Modernisierung">
+                                <div class="card-content"><i data-lucide="wrench"></i><span>Modernisierung</span></div>
+                            </label>
+                            <label class="option-card">
+                                <input type="radio" name="vorhaben" value="Grundstueck">
+                                <div class="card-content"><i data-lucide="map"></i><span>Grundstück</span></div>
+                            </label>
+                        </div>
+                        <button type="button" class="btn btn-primary btn-next" disabled>Weiter <i data-lucide="arrow-right"></i></button>
+                    </div>
+
+                    <!-- Step 2: Welche Art des Objekts? -->
+                    <div class="form-step" id="step-2">
+                        <h3>Welche Art des Objekts?</h3>
+                        <div class="options-grid">
+                            <label class="option-card">
+                                <input type="radio" name="objektart" value="Eigentumswohnung" required>
+                                <div class="card-content"><i data-lucide="building-2"></i><span>Eigentumswohnung</span></div>
+                            </label>
+                            <label class="option-card">
+                                <input type="radio" name="objektart" value="Einfamilienhaus">
+                                <div class="card-content"><i data-lucide="home"></i><span>Einfamilienhaus</span></div>
+                            </label>
+                            <label class="option-card">
+                                <input type="radio" name="objektart" value="Mehrfamilienhaus">
+                                <div class="card-content"><i data-lucide="building"></i><span>Mehrfamilienhaus</span></div>
+                            </label>
+                            <label class="option-card">
+                                <input type="radio" name="objektart" value="Wohn- und Geschaeftshaus">
+                                <div class="card-content"><i data-lucide="hotel"></i><span>Wohn- und Geschäftshaus</span></div>
                             </label>
                         </div>
                         <div class="form-actions">
+                            <button type="button" class="btn btn-text btn-prev"><i data-lucide="arrow-left"></i> Zurück</button>
                             <button type="button" class="btn btn-primary btn-next" disabled>Weiter <i data-lucide="arrow-right"></i></button>
                         </div>
                     </div>
 
-                    <!-- Step 2 -->
-                    <div class="form-step" id="step-2">
-                        <h3>Familie & Einkommen</h3>
-                        <p class="step-desc">Einige Programme wie "Wohneigentum für Familien" hängen von Einkommen und Kindern ab.</p>
-                        
-                        <div class="form-group">
-                            <label for="kinder">Anzahl der minderjährigen Kinder im Haushalt</label>
-                            <select id="kinder" name="kinder" required>
-                                <option value="" disabled selected>Bitte auswählen</option>
-                                <option value="0">Keine Kinder</option>
-                                <option value="1">1 Kind</option>
-                                <option value="2">2 Kinder</option>
-                                <option value="3plus">3 oder mehr Kinder</option>
-                            </select>
+                    <!-- Step 3: Wie wird die Immobilie genutzt? -->
+                    <div class="form-step" id="step-3">
+                        <h3>Wie wird die Immobilie genutzt?</h3>
+                        <div class="options-grid">
+                            <label class="option-card">
+                                <input type="radio" name="nutzung" value="selbstbewohnt" required>
+                                <div class="card-content"><i data-lucide="user"></i><span>selbstbewohnt</span></div>
+                            </label>
+                            <label class="option-card">
+                                <input type="radio" name="nutzung" value="vermietet">
+                                <div class="card-content"><i data-lucide="users"></i><span>vermietet</span></div>
+                            </label>
                         </div>
-                        
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-text btn-prev"><i data-lucide="arrow-left"></i> Zurück</button>
+                            <button type="button" class="btn btn-primary btn-next" disabled>Weiter <i data-lucide="arrow-right"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Wo befindet sich das Objekt? -->
+                    <div class="form-step" id="step-4">
+                        <h3>Wo befindet sich das Objekt?</h3>
                         <div class="form-group">
-                            <label for="haushaltseinkommen">Geschätztes Haushaltsnettoeinkommen pro Jahr (€)</label>
+                            <label for="zipcode">PLZ des Objekts</label>
                             <div class="input-with-icon">
-                                <i data-lucide="wallet"></i>
-                                <input type="number" id="haushaltseinkommen" name="haushaltseinkommen" placeholder="z.B. 65000" required>
+                                <i data-lucide="map-pin"></i>
+                                <input type="text" id="zipcode" name="zipcode" placeholder="z.B. 10115" required maxlength="5" pattern="[0-9]{5}">
                             </div>
                         </div>
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-text btn-prev"><i data-lucide="arrow-left"></i> Zurück</button>
+                            <button type="button" class="btn btn-primary btn-next">Weiter <i data-lucide="arrow-right"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Step 5: Hast du deine Wunschimmobilie schon besichtigt? -->
+                    <div class="form-step" id="step-5">
+                        <h3>Status der Immobilie?</h3>
+                        <div class="options-grid">
+                            <label class="option-card">
+                                <input type="radio" name="besichtigungsstatus" value="Objekt gefunden" required>
+                                <div class="card-content"><span>Objekt gefunden</span></div>
+                            </label>
+                            <label class="option-card">
+                                <input type="radio" name="besichtigungsstatus" value="Entscheidung getroffen">
+                                <div class="card-content"><span>Entscheidung gefallen</span></div>
+                            </label>
+                            <label class="option-card">
+                                <input type="radio" name="besichtigungsstatus" value="Notartermin geplant">
+                                <div class="card-content"><span>Notartermin geplant</span></div>
+                            </label>
+                            <label class="option-card">
+                                <input type="radio" name="besichtigungsstatus" value="Auf Objektsuche">
+                                <div class="card-content"><span>noch auf Objektsuche</span></div>
+                            </label>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-text btn-prev"><i data-lucide="arrow-left"></i> Zurück</button>
+                            <button type="button" class="btn btn-primary btn-next" disabled>Weiter <i data-lucide="arrow-right"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Step 6: Finanzierungsbedarfsrechner -->
+                    <div class="form-step" id="step-6">
+                        <h3>Finanzierungsbedarf</h3>
+                        <div class="form-group">
+                            <label for="kaufpreis">Kaufpreis der Immobilie (€)</label>
+                            <div class="input-with-icon">
+                                <i data-lucide="euro"></i>
+                                <input type="number" id="kaufpreis" name="kaufpreis" value="450000" step="5000" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Fällt Maklerprovision an?</label>
+                            <div style="display: flex; gap: 1rem; margin-top: 0.5rem;">
+                                <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                                    <input type="radio" name="makler" value="Ja" checked> Ja
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                                    <input type="radio" name="makler" value="Nein"> Nein
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="modernisierung">Modernisierungskosten? (€)</label>
+                            <div class="input-with-icon">
+                                <i data-lucide="wrench"></i>
+                                <input type="number" id="modernisierung" name="modernisierung" value="0" step="1000">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="eigenkapital">Vorhandenes Eigenkapital (€)</label>
+                            <div class="input-with-icon">
+                                <i data-lucide="piggy-bank"></i>
+                                <input type="number" id="eigenkapital" name="eigenkapital" value="50000" step="1000">
+                            </div>
+                        </div>
+                        
+                        <div class="live-calc-result" style="background: rgba(15, 23, 42, 0.05); padding: 1.25rem; border-radius: var(--radius-md); margin: 1.5rem 0; border: 1px solid var(--border-color);">
+                            <p style="font-weight: 600; font-size: 0.875rem; color: var(--text-light); margin-bottom: 0.25rem; text-transform: uppercase; letter-spacing: 0.5px;">Voraussichtlicher Darlehensbedarf</p>
+                            <input type="hidden" name="darlehensbedarf" id="hdn-darlehen">
+            <span id="live-darlehen" style="font-size: 2rem; font-weight: 800; color: var(--primary-color);">0 €</span>
+                        </div>
+                        
+                        <p class="text-sm" style="font-style: italic; line-height: 1.4; color: var(--text-light); margin-bottom: 1.5rem; background: #fffbeb; padding: 0.75rem; border-radius: 8px; border-left: 4px solid #f59e0b;">
+                            <strong>Hinweis:</strong> Je mehr Eigenkapital du einbringst, desto höher ist die Wahrscheinlichkeit einer Kreditzusage und desto besser ist der Zinssatz. Das Eigenkapital sollte mindestens so hoch sein wie die Nebenkosten.
+                        </p>
 
                         <div class="form-actions">
                             <button type="button" class="btn btn-text btn-prev"><i data-lucide="arrow-left"></i> Zurück</button>
@@ -148,76 +255,98 @@
                         </div>
                     </div>
 
-                    <!-- Step 3 -->
-                    <div class="form-step" id="step-3">
-                        <h3>Energetischer Standard</h3>
-                        <p class="step-desc">Besonders effiziente Immobilien erhalten die meiste Förderung.</p>
-                        
+                    <!-- Step 7: Persönliche Daten & Beschäftigung -->
+                    <div class="form-step" id="step-7">
+                        <h3>Ihre Kontaktdaten</h3>
                         <div class="form-group">
-                            <label for="energie">Erreicht das Haus einen hohen Energiestandard? (z.B. Effizienzhaus 40)</label>
-                            <select id="energie" name="energie" required>
-                                <option value="" disabled selected>Bitte auswählen</option>
-                                <option value="ja">Ja, höchster Standard (KfW 40/55)</option>
-                                <option value="nein">Nein / normales Bestandsgebäude</option>
-                                <option value="weissnicht">Weiß ich nicht</option>
+                            <label>Anrede</label>
+                            <select name="anrede" required>
+                                <option value="Herr">Herr</option>
+                                <option value="Frau">Frau</option>
+                                <option value="Divers">Divers</option>
                             </select>
                         </div>
-
-                        <div class="form-actions">
-                            <button type="button" class="btn btn-text btn-prev"><i data-lucide="arrow-left"></i> Zurück</button>
-                            <button type="button" class="btn btn-primary btn-next">Weiter <i data-lucide="arrow-right"></i></button>
-                        </div>
-                    </div>
-
-                    <!-- Step 4 -->
-                    <div class="form-step" id="step-4">
-                        <h3>Kontaktdaten für Ihre Fördermittelauswertung</h3>
-                        <p class="step-desc">Wir prüfen Ihre Angaben unverbindlich und senden Ihnen eine Übersicht möglicher Fördergelder.</p>
-                        
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="vorname">Vorname</label>
-                                <input type="text" id="vorname" name="vorname" required>
+                                <label for="firstname">Vorname</label>
+                                <input type="text" name="firstname" required>
                             </div>
                             <div class="form-group">
-                                <label for="nachname">Nachname</label>
-                                <input type="text" id="nachname" name="nachname" required>
+                                <label for="lastname">Nachname</label>
+                                <input type="text" name="lastname" required>
                             </div>
                         </div>
-                        
-                        <div class="form-group">
-                            <label for="email">E-Mail</label>
-                            <input type="email" id="email" name="email" required>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="user_zipcode">PLZ</label>
+                                <input type="text" name="user_zipcode" required maxlength="5">
+                            </div>
+                            <div class="form-group">
+                                <label for="city">Wohnort</label>
+                                <input type="text" name="city" required>
+                            </div>
                         </div>
                         <div class="form-group">
-                            <label for="telefon">Telefon</label>
-                            <input type="tel" id="telefon" name="telefon" required>
+                            <label for="phone">Telefonnummer</label>
+                            <input type="tel" name="phone" required>
                         </div>
+                        <div class="form-group">
+                            <label for="email">E-Mail Adresse</label>
+                            <input type="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Art der Beschäftigung</label>
+                            <select name="beschaeftigung" required>
+                                <option value="Angestellter">Angestellter / Angestellte</option>
+                                <option value="Beamter">Beamter / Beamte</option>
+                                <option value="Minijob">Minijob</option>
+                                <option value="Elternzeit">Elternzeit</option>
+                                <option value="Selbststaendiger">Selbstständiger</option>
+                                <option value="Freiberufler">Freiberufler</option>
+                                <option value="Rentner">Rentner</option>
+                                <option value="Geschaeftsf. Gesellschafter">Geschäftsf. Gesellschafter</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Gibt es SCHUFA-Einträge?</label>
+                            <select name="schufa" required>
+                                <option value="Nein">Nein</option>
+                                <option value="Ja, aber erledigt">Ja, aber erledigt</option>
+                                <option value="Ja, nicht erledigt">Ja, nicht erledigt</option>
+                            </select>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-text btn-prev"><i data-lucide="arrow-left"></i> Zurück</button>
+                            <button type="button" class="btn btn-primary btn-next">Weiter <i data-lucide="arrow-right"></i></button>
+                        </div>
+                    </div>
 
+                    <!-- Step 8: Opt-In & Submit -->
+                    <div class="form-step" id="step-8">
+                        <h3>Prüfung starten</h3>
+                        <p class="step-desc">Fast fertig! Mit einem Klick vergleichen wir für Sie über 400 Banken. Kostenlos & SCHUFA-neutral.</p>
+                        
                         <label class="checkbox-container">
                             <input type="checkbox" name="consent" checked required>
                             <span class="checkmark"></span>
-                            <span class="checkbox-text">Ich bin einverstanden, dass meine Daten verarbeitet und an Fördermittelexperten zur Beratung übermittelt werden. (Unverbindlich)</span>
+                            <span class="checkbox-text">Ich bin damit einverstanden, dass meine Daten verarbeitet werden, um mir passende Finanzierungsangebote zu unterbreiten. (Jederzeit widerrufbar)</span>
                         </label>
 
                         <div class="form-actions">
                             <button type="button" class="btn btn-text btn-prev"><i data-lucide="arrow-left"></i> Zurück</button>
-                            <button type="submit" class="btn btn-primary">Auswertung anfordern <i data-lucide="check-circle"></i></button>
+                            <button type="submit" class="btn btn-primary">Jetzt unverbindlich anfragen <i data-lucide="check-circle"></i></button>
                         </div>
                     </div>
 
-                    <!-- Success -->
+                    <!-- Erfolgsmeldung -->
                     <div class="form-step" id="step-success">
-                        <div class="success-content" style="text-align: center; padding: 2rem 0;">
-                            <div class="success-icon" style="width:80px; height:80px; background:rgba(16,185,129,0.1); color:var(--success); border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 1.5rem;">
-                                <i data-lucide="check" style="width:40px; height:40px;"></i>
-                            </div>
+                        <div class="success-content">
+                            <div class="success-icon"><i data-lucide="check"></i></div>
                             <h3>Anfrage erfolgreich!</h3>
-                            <p>Unsere Experten prüfen nun Ihre Förderchancen. Wir melden uns in Kürze telefonisch bei Ihnen.</p>
-                            <a href="quiz-haus-leisten.html" class="btn btn-outline" style="margin-top: 1rem;">Zum Finanzierungs-Quiz</a>
+                            <p>Ihre Daten wurden sicher übermittelt. Ein Experte prüft Ihre Unterlagen und meldet sich in Kürze.</p>
+                            <a href="index.html" class="btn btn-outline" style="margin-top: 2rem;">Zurück zur Startseite</a>
                         </div>
                     </div>
-
                 </form>
             </div>
         </section>
