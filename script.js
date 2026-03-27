@@ -156,7 +156,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if(submitBtn) {
             submitBtn.classList.add('btn-loading');
             submitBtn.innerHTML = 'Wird übermittelt... <i data-lucide="loader-2" class="spin"></i>';
-            submitBtn.disabled = true;
+            // Use pointer-events to prevent multiple clicks without fully disabling the button immediately
+            submitBtn.style.pointerEvents = 'none';
             if(window.lucide) lucide.createIcons();
         }
 
