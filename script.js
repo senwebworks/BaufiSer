@@ -23,6 +23,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     currentStep++;
                     updateView();
                 }
+             } else {
+                const stepEl = document.getElementById(`step-${currentStep}`);
+                if(stepEl) {
+                    stepEl.classList.remove('shake');
+                    void stepEl.offsetWidth; // Trigger reflow
+                    stepEl.classList.add('shake');
+                }
              }
         });
     });
@@ -93,11 +100,14 @@ document.addEventListener('DOMContentLoaded', () => {
         // Step 4 (PLZ) needs specifically 5 digits
         if(currentStep === 4) {
             const zipInput = document.getElementById('zipcode');
+            const zipError = document.getElementById('zip-error');
             if(zipInput && !/^[0-9]{5}$/.test(zipInput.value)) {
-                zipInput.style.borderColor = 'red';
+                zipInput.style.borderColor = '#ef4444';
+                if(zipError) zipError.style.display = 'block';
                 return false;
             } else if(zipInput) {
                 zipInput.style.borderColor = '';
+                if(zipError) zipError.style.display = 'none';
             }
         }
 
@@ -119,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if(!fieldValid) {
                 isValid = false;
-                input.style.borderColor = 'red';
+                input.style.borderColor = '#ef4444';
                 input.style.backgroundColor = 'rgba(239, 68, 68, 0.05)';
             } else {
                 input.style.borderColor = '';

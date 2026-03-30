@@ -117,36 +117,36 @@
                     <h3>Ihre Rahmenbedingungen</h3>
                     
                     <div class="calc-group">
-                        <label for="kaufpreis">Kaufpreis der Immobilie</label>
+                        <label for="calc-kaufpreis">Kaufpreis der Immobilie</label>
                         <div class="calc-input-wrapper">
-                            <input type="number" id="kaufpreis" value="450000" min="50000" step="10000">
+                            <input type="number" id="calc-kaufpreis" value="450000" min="50000" step="10000">
                             <span class="calc-input-suffix">€</span>
                         </div>
-                        <input type="range" id="kaufpreis-range" min="50000" max="1500000" step="10000" value="450000">
+                        <input type="range" id="calc-kaufpreis-range" min="50000" max="1500000" step="10000" value="450000">
                     </div>
 
                     <div class="calc-group">
-                        <label for="eigenkapital">Vorhandenes Eigenkapital</label>
+                        <label for="calc-eigenkapital">Vorhandenes Eigenkapital</label>
                         <div class="calc-input-wrapper">
-                            <input type="number" id="eigenkapital" value="50000" min="0" step="5000">
+                            <input type="number" id="calc-eigenkapital" value="50000" min="0" step="5000">
                             <span class="calc-input-suffix">€</span>
                         </div>
-                        <input type="range" id="eigenkapital-range" min="0" max="500000" step="5000" value="50000">
+                        <input type="range" id="calc-eigenkapital-range" min="0" max="500000" step="5000" value="50000">
                     </div>
 
                     <div class="calc-group">
-                        <label for="sollzins">Angenommener Sollzins</label>
+                        <label for="calc-sollzins">Angenommener Sollzins</label>
                         <div class="calc-input-wrapper">
-                            <input type="number" id="sollzins" value="3.20" min="0.5" max="8.0" step="0.05">
+                            <input type="number" id="calc-sollzins" value="3.20" min="0.5" max="8.0" step="0.05">
                             <span class="calc-input-suffix">%</span>
                         </div>
                         <p class="text-sm" style="margin-top:0.5rem; color: var(--text-light);">Aktueller Richtwert (Stand 20.03.2026): ca. 3,20%</p>
                     </div>
 
                     <div class="calc-group">
-                        <label for="tilgung">Anfängliche Tilgung</label>
+                        <label for="calc-tilgung">Anfängliche Tilgung</label>
                         <div class="calc-input-wrapper">
-                            <input type="number" id="tilgung" value="2.0" min="1.0" max="10.0" step="0.5">
+                            <input type="number" id="calc-tilgung" value="2.0" min="1.0" max="10.0" step="0.5">
                             <span class="calc-input-suffix">%</span>
                         </div>
                         <p class="text-sm" style="margin-top:0.5rem; color: var(--text-light);">Empfohlen: mind. 2,0% zur gesicherten Rückzahlung.</p>
@@ -262,6 +262,7 @@
                 <i data-lucide="map-pin"></i>
                 <input type="text" id="zipcode" name="zipcode" placeholder="z.B. 10115" required maxlength="5" pattern="[0-9]{5}">
             </div>
+            <p id="zip-error" style="color: #ef4444; font-size: 0.75rem; margin-top: 0.25rem; display: none;">Bitte geben Sie eine gültige 5-stellige PLZ ein.</p>
         </div>
         <div class="form-actions">
             <button type="button" class="btn btn-text btn-prev"><i data-lucide="arrow-left"></i> Zurück</button>
@@ -365,30 +366,30 @@
         <div class="form-row">
             <div class="form-group">
                 <label for="firstname">Vorname</label>
-                <input type="text" name="firstname" required>
+                <input type="text" id="firstname" name="firstname" required>
             </div>
             <div class="form-group">
                 <label for="lastname">Nachname</label>
-                <input type="text" name="lastname" required>
+                <input type="text" id="lastname" name="lastname" required>
             </div>
         </div>
         <div class="form-row">
             <div class="form-group">
                 <label for="user_zipcode">PLZ</label>
-                <input type="text" name="user_zipcode" required maxlength="5">
+                <input type="text" id="user_zipcode" name="user_zipcode" required maxlength="5">
             </div>
             <div class="form-group">
                 <label for="city">Wohnort</label>
-                <input type="text" name="city" required>
+                <input type="text" id="city" name="city" required>
             </div>
         </div>
         <div class="form-group">
             <label for="phone">Telefonnummer</label>
-            <input type="tel" name="phone" required>
+            <input type="tel" id="phone" name="phone" required>
         </div>
         <div class="form-group">
             <label for="email">E-Mail Adresse</label>
-            <input type="email" name="email" required>
+            <input type="email" id="email" name="email" required>
         </div>
         <div class="form-group">
             <label>Art der Beschäftigung</label>
@@ -549,12 +550,12 @@
 
         // Calculator Logic
         document.addEventListener('DOMContentLoaded', () => {
-            const elKaufpreis = document.getElementById('kaufpreis');
-            const elKaufpreisR = document.getElementById('kaufpreis-range');
-            const elEigenkapital = document.getElementById('eigenkapital');
-            const elEigenkapitalR = document.getElementById('eigenkapital-range');
-            const elSollzins = document.getElementById('sollzins');
-            const elTilgung = document.getElementById('tilgung');
+            const elKaufpreis = document.getElementById('calc-kaufpreis');
+            const elKaufpreisR = document.getElementById('calc-kaufpreis-range');
+            const elEigenkapital = document.getElementById('calc-eigenkapital');
+            const elEigenkapitalR = document.getElementById('calc-eigenkapital-range');
+            const elSollzins = document.getElementById('calc-sollzins');
+            const elTilgung = document.getElementById('calc-tilgung');
 
             const resRate = document.getElementById('res-rate');
             const resDarlehen = document.getElementById('res-darlehen');

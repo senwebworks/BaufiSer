@@ -154,6 +154,7 @@
                                 <i data-lucide="map-pin"></i>
                                 <input type="text" id="zipcode" name="zipcode" placeholder="z.B. 10115" required maxlength="5" pattern="[0-9]{5}">
                             </div>
+                            <p id="zip-error" style="color: #ef4444; font-size: 0.75rem; margin-top: 0.25rem; display: none;">Bitte geben Sie eine gültige 5-stellige PLZ ein.</p>
                         </div>
                         <div class="form-actions">
                             <button type="button" class="btn btn-text btn-prev"><i data-lucide="arrow-left"></i> Zurück</button>
@@ -253,20 +254,20 @@
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="firstname">Vorname</label>
-                                <input type="text" name="firstname" required>
+                                <input type="text" id="firstname" name="firstname" required>
                             </div>
                             <div class="form-group">
                                 <label for="lastname">Nachname</label>
-                                <input type="text" name="lastname" required>
+                                <input type="text" id="lastname" name="lastname" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="email">E-Mail Adresse</label>
-                            <input type="email" name="email" required>
+                            <input type="email" id="email" name="email" required>
                         </div>
                         <div class="form-group">
                             <label for="phone">Telefonnummer</label>
-                            <input type="tel" name="phone" required>
+                            <input type="tel" id="phone" name="phone" required>
                         </div>
                         <div class="form-group">
                             <label>Art der Beschäftigung</label>
