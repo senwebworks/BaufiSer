@@ -191,6 +191,16 @@ document.addEventListener('DOMContentLoaded', () => {
     form.addEventListener('submit', (e) => {
         e.preventDefault();
 
+        // If not on the final step, just try to go to the next step
+        if (currentStep < totalSteps) {
+            const activeStep = document.querySelector('.form-step.active');
+            const nextBtn = activeStep ? activeStep.querySelector('.btn-next') : null;
+            if (nextBtn) {
+                nextBtn.click();
+            }
+            return;
+        }
+
         // Final validation check of current step
         if(!validateCurrentStep()) {
             return;
