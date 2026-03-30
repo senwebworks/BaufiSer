@@ -43,6 +43,26 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Prevent Enter key from submitting prematurely
+    form.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            const target = e.target;
+            // Don't intercept enter if it's a textarea or a button
+            if (target.tagName === 'TEXTAREA' || target.tagName === 'BUTTON') return;
+            
+            e.preventDefault();
+            const activeStep = document.querySelector('.form-step.active');
+            const nextBtn = activeStep ? activeStep.querySelector('.btn-next') : null;
+            
+            if (nextBtn) {
+                nextBtn.click();
+            } else if (currentStep === totalSteps) {
+                // If on last step, trigger form submission
+                form.requestSubmit(); 
+            }
+        }
+    });
+
     // Handle Option Selection auto-advance (for Steps 1, 2, 3, 5)
     const autoAdvanceSteps = [1, 2, 3, 5];
     const optionCardsRadios = document.querySelectorAll('.option-card input[type="radio"]');

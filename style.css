@@ -363,6 +363,13 @@ ul {
     border-radius: var(--radius-md);
     transition: var(--transition);
     font-weight: 500;
+    hyphens: auto;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+.card-content span {
+    line-height: 1.2;
 }
 
 .card-content i {
@@ -544,6 +551,11 @@ ul {
     to { transform: scale(1); }
 }
 
+@keyframes successScaleInIcon {
+    from { transform: translate(-50%, -50%) scale(0); }
+    to { transform: translate(-50%, -50%) scale(1); }
+}
+
 .success-icon-check {
     position: absolute;
     top: 50%;
@@ -552,7 +564,7 @@ ul {
     color: white;
     width: 60px;
     height: 60px;
-    animation: successScaleIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards 0.7s;
+    animation: successScaleInIcon 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards 0.7s;
     display: flex;
     align-items: center;
     justify-content: center;
