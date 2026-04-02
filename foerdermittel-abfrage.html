@@ -333,6 +333,23 @@
                             <label for="email">E-Mail Adresse</label>
                             <input type="email" id="email" name="email" required>
                         </div>
+                        <div class="form-group">
+                            <label for="monatseinkommen">Monatliches Haushaltsnettoeinkommen (€)</label>
+                            <div class="input-with-icon">
+                                <i data-lucide="banknote"></i>
+                                <input type="number" id="monatseinkommen" name="monatseinkommen" placeholder="z.B. 4500" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Art der Beschäftigung</label>
+                            <select name="beschaeftigung" required>
+                                <option value="Angestellter">Angestellter / Angestellte</option>
+                                <option value="Beamter">Beamter / Beamte</option>
+                                <option value="Selbststaendiger">Selbstständiger</option>
+                                <option value="Rentner">Rentner</option>
+                                <option value="Sonstiges">Sonstiges</option>
+                            </select>
+                        </div>
                         <div class="form-actions">
                             <button type="button" class="btn btn-text btn-prev"><i data-lucide="arrow-left"></i> Zurück</button>
                             <button type="button" class="btn btn-primary btn-next">Weiter <i data-lucide="arrow-right"></i></button>
