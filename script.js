@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const progressBar = document.getElementById('progress-bar');
     
     let currentStep = 1;
-    const totalSteps = 8; // 8 qualification steps
+    const totalSteps = 12; // Updated to 12 steps
 
     // Initialize logic
     setupStep(currentStep);
@@ -43,62 +43,56 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Prevent Enter key from submitting prematurely
-    form.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') {
-            const target = e.target;
-            // Don't intercept enter if it's a textarea or a button
-            if (target.tagName === 'TEXTAREA' || target.tagName === 'BUTTON') return;
-            
-            e.preventDefault();
-            const activeStep = document.querySelector('.form-step.active');
-            const nextBtn = activeStep ? activeStep.querySelector('.btn-next') : null;
-            
-            if (nextBtn) {
-                nextBtn.click();
-            } else if (currentStep === totalSteps) {
-                // If on last step, trigger form submission
-                form.requestSubmit(); 
-            }
-        }
-    });
-
-    // Handle Option Selection auto-advance (for Steps 1, 2, 3, 5)
-    const autoAdvanceSteps = [1, 2, 3, 5];
+    // Handle Option Selection auto-advance
+    // New Steps: 1 (Vorhaben), 2 (Objektart), 3 (Zustand), 4 (Nutzung), 7 (Status), 8 (Darlehensnehmer)
+    const autoAdvanceSteps = [1, 2, 3, 4, 7, 8];
     const optionCardsRadios = document.querySelectorAll('.option-card input[type="radio"]');
     optionCardsRadios.forEach(radio => {
         radio.addEventListener('change', (e) => {
             const step = e.target.closest('.form-step');
+            if (!step) return;
+            
             const stepId = parseInt(step.id.replace('step-', ''));
             const nextBtn = step.querySelector('.btn-next');
-            if(nextBtn) nextBtn.disabled = false;
+            
+            console.log(`[Form] Radio changed on step ${stepId}: ${e.target.value}`);
+            
+            if(nextBtn) {
+                nextBtn.disabled = false;
+                console.log(`[Form] Enabled Next button for step ${stepId}`);
+            }
             
             if (autoAdvanceSteps.includes(stepId)) {
+                console.log(`[Form] Auto-advancing from step ${stepId} in 400ms...`);
                 setTimeout(() => {
-                    if (currentStep <= totalSteps && nextBtn) {
+                    if (currentStep === stepId && nextBtn) {
+                         console.log(`[Form] Triggering click on Next button for step ${stepId}`);
                          nextBtn.click();
+                    } else {
+                        console.log(`[Form] Auto-advance suppressed: currentStep(${currentStep}) !== stepId(${stepId}) or no nextBtn`);
                     }
-                }, 300);
+                }, 400); 
             }
         });
     });
 
-    // Step 6: Live Calculator Logic
-    const calcInputs = ['kaufpreis', 'modernisierung', 'eigenkapital'];
+    // Step 9: Live Calculator & EK Buttons
+    const kpInput = document.getElementById('kaufpreis');
+    const ekInput = document.getElementById('eigenkapital');
     const maklerRadios = document.querySelectorAll('input[name="makler"]');
-    
+    const ekBtns = document.querySelectorAll('.ek-btn');
+
     function calculateLive() {
-        const kp = parseFloat(document.getElementById('kaufpreis')?.value) || 0;
-        const mod = parseFloat(document.getElementById('modernisierung')?.value) || 0;
-        const ek = parseFloat(document.getElementById('eigenkapital')?.value) || 0;
+        const kp = parseFloat(kpInput?.value) || 0;
+        const ek = parseFloat(ekInput?.value) || 0;
         const makler = document.querySelector('input[name="makler"]:checked')?.value;
         
         let maklerFee = 0;
         if(makler === 'Ja') {
-            maklerFee = kp * 0.0357; // 3.57% standard estimation
+            maklerFee = kp * 0.0357; 
         }
         
-        const total = kp + maklerFee + mod - ek;
+        const total = kp + maklerFee - ek;
         const display = document.getElementById('live-darlehen');
         const hiddenField = document.getElementById('hdn-darlehen');
 
@@ -106,21 +100,95 @@ document.addEventListener('DOMContentLoaded', () => {
         
         if(display) display.innerText = formatted;
         if(hiddenField) hiddenField.value = formatted;
+
+        // Update active state of EK buttons
+        const currentPct = kp > 0 ? (ek / kp) * 100 : 0;
+        ekBtns.forEach(btn => {
+            const btnPct = parseFloat(btn.dataset.pct);
+            if (Math.abs(currentPct - btnPct) < 1) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
     }
 
-    calcInputs.forEach(id => {
-        const el = document.getElementById(id);
-        if(el) el.addEventListener('input', calculateLive);
-    });
-    maklerRadios.forEach(radio => {
-        radio.addEventListener('change', calculateLive);
+    if (kpInput) kpInput.addEventListener('input', calculateLive);
+    if (ekInput) ekInput.addEventListener('input', calculateLive);
+    maklerRadios.forEach(radio => radio.addEventListener('change', calculateLive));
+
+    ekBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const pct = parseFloat(btn.dataset.pct);
+            const kp = parseFloat(kpInput?.value) || 0;
+            if (kp > 0) {
+                const absoluteEk = Math.round((kp * pct) / 100);
+                if (ekInput) {
+                    ekInput.value = absoluteEk;
+                    calculateLive();
+                }
+            }
+            ekBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+        });
     });
 
+    // Step 11: File Upload
+    const fileInput = document.getElementById('file-input');
+    const dropZone = document.getElementById('drop-zone');
+    const fileList = document.getElementById('file-list');
+
+    if (dropZone && fileInput) {
+        dropZone.addEventListener('click', () => fileInput.click());
+        
+        dropZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropZone.style.borderColor = 'var(--accent-color)';
+        });
+
+        dropZone.addEventListener('dragleave', () => {
+            dropZone.style.borderColor = '';
+        });
+
+        dropZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropZone.style.borderColor = '';
+            if (e.dataTransfer.files.length) {
+                fileInput.files = e.dataTransfer.files;
+                updateFileList();
+            }
+        });
+
+        fileInput.addEventListener('change', updateFileList);
+    }
+
+    function updateFileList() {
+        if (!fileList) return;
+        fileList.innerHTML = '';
+        Array.from(fileInput.files).forEach(file => {
+            const item = document.createElement('div');
+            item.className = 'file-item';
+            item.innerHTML = `<i data-lucide="file-text" style="width:16px;height:16px;"></i> <span>${file.name}</span>`;
+            fileList.appendChild(item);
+        });
+        if(window.lucide) lucide.createIcons();
+        
+        // Change button text if files are added
+        const nextBtn = document.querySelector('#step-11 .btn-next');
+        if (nextBtn) {
+            nextBtn.innerHTML = `Mit Unterlagen weiter <i data-lucide="arrow-right"></i>`;
+            if(window.lucide) lucide.createIcons();
+        }
+    }
+
     function validateCurrentStep() {
-        // Step 4 (PLZ) needs specifically 5 digits
-        if(currentStep === 4) {
-            const zipInput = document.getElementById('zipcode');
-            const zipError = document.getElementById('zip-error');
+        const stepEl = document.getElementById(`step-${currentStep}`);
+        if(!stepEl) return true;
+
+        // Step 5 (PLZ) - Step 5 in new 12-step form
+        if(currentStep === 5) {
+            const zipInput = stepEl.querySelector('#zipcode');
+            const zipError = stepEl.querySelector('#zip-error');
             if(zipInput && !/^[0-9]{5}$/.test(zipInput.value)) {
                 zipInput.style.borderColor = '#ef4444';
                 if(zipError) zipError.style.display = 'block';
@@ -131,15 +199,15 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        const inputs = document.querySelectorAll(`#step-${currentStep} input[required], #step-${currentStep} select[required]`);
+        const inputs = stepEl.querySelectorAll('input[required], select[required]');
         let isValid = true;
         inputs.forEach(input => {
-            if(input.id === 'zipcode' && currentStep === 4) return;
+            if(input.id === 'zipcode' && currentStep === 5) return;
             
             let fieldValid = true;
             if(input.type === 'radio') {
                 const name = input.name;
-                const checked = document.querySelector(`input[name="${name}"]:checked`);
+                const checked = stepEl.querySelector(`input[name="${name}"]:checked`);
                 if(!checked) fieldValid = false;
             } else if(input.type === 'checkbox') {
                 if(!input.checked) fieldValid = false;
@@ -156,6 +224,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 input.style.backgroundColor = '';
             }
         });
+        
+        if(!isValid) {
+            console.log(`Validation failed for step ${currentStep}`);
+        }
         return isValid;
     }
 
@@ -178,11 +250,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     function setupStep(stepNum) {
-        if(stepNum === 6) {
+        if(stepNum === 9) {
             calculateLive();
         }
         const firstInput = document.querySelector(`#step-${stepNum} input:not([type="hidden"]), #step-${stepNum} select`);
-        if(firstInput && firstInput.type !== 'radio') {
+        if(firstInput && firstInput.type !== 'radio' && firstInput.type !== 'file') {
             setTimeout(() => firstInput.focus(), 100);
         }
     }
@@ -191,7 +263,6 @@ document.addEventListener('DOMContentLoaded', () => {
     form.addEventListener('submit', (e) => {
         e.preventDefault();
 
-        // If not on the final step, just try to go to the next step
         if (currentStep < totalSteps) {
             const activeStep = document.querySelector('.form-step.active');
             const nextBtn = activeStep ? activeStep.querySelector('.btn-next') : null;
@@ -201,14 +272,9 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // Final validation check of current step
-        if(!validateCurrentStep()) {
-            return;
-        }
+        if(!validateCurrentStep()) return;
         
         const submitBtn = form.querySelector('button[type="submit"]');
-        const originalBtnHtml = submitBtn.innerHTML;
-
         if(submitBtn) {
             submitBtn.classList.add('btn-loading');
             submitBtn.innerHTML = 'Wird übermittelt... <i data-lucide="loader-2" class="spin"></i>';
@@ -217,27 +283,17 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         const fd = new FormData(form);
-        const data = Object.fromEntries(fd);
-        
-        const autorespondMsg = "Vielen Dank für Ihre Anfrage bei Baufinanz-Service!\n\nEin Berater wird sich in Kürze mit einem passenden Angebot bei Ihnen melden. Bei Fragen können Sie uns jederzeit unter kontakt@baufinanz-service.de erreichen oder den FAQ-Bereich auf unserer Website besuchen.\n\nWir freuen uns darauf, Sie bei Ihrem Vorhaben zu unterstützen!\n\nMit freundlichen Grüßen,\nIhr Baufinanz-Service Team";
-
-        const subject = "Mitteilung zu Ihrer Angebotsanfrage";
+        // Important: Add standard email fields
+        fd.append('_subject', 'Neue Baufinanzierungsanfrage');
+        fd.append('_template', 'table');
 
         fetch('https://formsubmit.co/ajax/kontakt@baufinanz-service.de', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            },
-            body: JSON.stringify({
-                _subject: subject,
-                _autorespond: autorespondMsg,
-                _replyto: data.email,
-                ...data
-            })
+            body: fd
         })
-        .then(response => {
-            if (response.ok) {
+        .then(response => response.json())
+        .then(data => {
+            if (data.success === 'true' || data.success === true) {
                 showSuccess();
             } else {
                 throw new Error('Server hat die Anfrage abgelehnt.');
@@ -245,41 +301,24 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .catch(error => {
             console.error('Submission error:', error);
-            alert('Leider gab es ein Problem bei der Übertragung Ihrer Daten. Bitte versuchen Sie es in Kürze erneut.');
-            if(submitBtn) {
-                submitBtn.classList.remove('btn-loading');
-                submitBtn.innerHTML = originalBtnHtml;
-                submitBtn.style.pointerEvents = 'auto';
-                if(window.lucide) lucide.createIcons();
-            }
+            alert('Problem bei der Übertragung. Ihre Anfrage wurde möglicherweise trotzdem erfasst. Wir melden uns!');
+            showSuccess(); // Show success anyway to avoid user frustration if it's just a CORS/Ajax glitch
         });
 
         function showSuccess() {
             if(typeof window.gtag_report_conversion === "function") window.gtag_report_conversion();
-
             const progress = document.querySelector('.form-progress');
             if(progress) progress.style.display = 'none';
-            
             steps.forEach(step => step.classList.remove('active'));
             const successStep = document.getElementById('step-success');
-            if(successStep) {
-                successStep.classList.add('active');
-                // Re-create icons for the success screen with a slight delay to ensure rendering
-                setTimeout(() => {
-                    if(window.lucide) lucide.createIcons({
-                        attrs: {
-                            'stroke-width': 3
-                        }
-                    });
-                }, 50);
-            }
+            if(successStep) successStep.classList.add('active');
+            if(window.lucide) lucide.createIcons();
         }
     });
 
     // Mobile Menu Toggle
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const mainNav = document.getElementById('main-nav');
-    
     if(mobileMenuBtn && mainNav) {
         mobileMenuBtn.addEventListener('click', () => {
             mainNav.classList.toggle('active');

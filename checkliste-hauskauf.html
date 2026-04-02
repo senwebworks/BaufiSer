@@ -66,33 +66,33 @@
             </div>
             
             <div class="split-form-container">
-                <form id="lead-form" class="lead-form" novalidate>
+                                <form id="lead-form" class="lead-form" enctype="multipart/form-data" novalidate>
                     <div class="form-progress">
                         <div class="progress-bar" id="progress-bar"></div>
                     </div>
 
                     <!-- Step 1: Was möchtest du finanzieren? -->
                     <div class="form-step active" id="step-1">
-                        <h3>Ihr Finanzierungsvorhaben</h3>
+                        <h3>Was möchtest du finanzieren?</h3>
                         <div class="options-grid">
                             <label class="option-card">
                                 <input type="radio" name="vorhaben" value="Hauskauf" required>
                                 <div class="card-content"><i data-lucide="home"></i><span>Kauf einer Immobilie</span></div>
                             </label>
                             <label class="option-card">
-                                <input type="radio" name="vorhaben" value="Bauvorhaben">
+                                <input type="radio" name="vorhaben" value="Bauvorhaben" required>
                                 <div class="card-content"><i data-lucide="hammer"></i><span>Eigenes Bauvorhaben</span></div>
                             </label>
                             <label class="option-card">
-                                <input type="radio" name="vorhaben" value="Anschlussfinanzierung">
+                                <input type="radio" name="vorhaben" value="Anschlussfinanzierung" required>
                                 <div class="card-content"><i data-lucide="refresh-cw"></i><span>Anschlussfinanzierung</span></div>
                             </label>
                             <label class="option-card">
-                                <input type="radio" name="vorhaben" value="Modernisierung">
+                                <input type="radio" name="vorhaben" value="Modernisierung" required>
                                 <div class="card-content"><i data-lucide="wrench"></i><span>Modernisierung</span></div>
                             </label>
                             <label class="option-card">
-                                <input type="radio" name="vorhaben" value="Grundstueck">
+                                <input type="radio" name="vorhaben" value="Grundstueck" required>
                                 <div class="card-content"><i data-lucide="map"></i><span>Grundstück</span></div>
                             </label>
                         </div>
@@ -108,15 +108,15 @@
                                 <div class="card-content"><i data-lucide="building-2"></i><span>Eigentumswohnung</span></div>
                             </label>
                             <label class="option-card">
-                                <input type="radio" name="objektart" value="Einfamilienhaus">
+                                <input type="radio" name="objektart" value="Einfamilienhaus" required>
                                 <div class="card-content"><i data-lucide="home"></i><span>Einfamilienhaus</span></div>
                             </label>
                             <label class="option-card">
-                                <input type="radio" name="objektart" value="Mehrfamilienhaus">
+                                <input type="radio" name="objektart" value="Mehrfamilienhaus" required>
                                 <div class="card-content"><i data-lucide="building"></i><span>Mehrfamilienhaus</span></div>
                             </label>
                             <label class="option-card">
-                                <input type="radio" name="objektart" value="Wohn- und Geschaeftshaus">
+                                <input type="radio" name="objektart" value="Wohn- und Geschaeftshaus" required>
                                 <div class="card-content"><i data-lucide="hotel"></i><span>Wohn- und Geschäftshaus</span></div>
                             </label>
                         </div>
@@ -126,8 +126,27 @@
                         </div>
                     </div>
 
-                    <!-- Step 3: Wie wird die Immobilie genutzt? -->
+                    <!-- Step 3: Bestand oder Neubau? -->
                     <div class="form-step" id="step-3">
+                        <h3>Bestand oder Neubau?</h3>
+                        <div class="options-grid">
+                            <label class="option-card">
+                                <input type="radio" name="zustand" value="Bestandsimmobilie" required>
+                                <div class="card-content"><i data-lucide="history"></i><span>Bestandsimmobilie</span></div>
+                            </label>
+                            <label class="option-card">
+                                <input type="radio" name="zustand" value="Neubau" required>
+                                <div class="card-content"><i data-lucide="sparkles"></i><span>Neubau / Erstbezug</span></div>
+                            </label>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-text btn-prev"><i data-lucide="arrow-left"></i> Zurück</button>
+                            <button type="button" class="btn btn-primary btn-next" disabled>Weiter <i data-lucide="arrow-right"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Wie wird die Immobilie genutzt? -->
+                    <div class="form-step" id="step-4">
                         <h3>Wie wird die Immobilie genutzt?</h3>
                         <div class="options-grid">
                             <label class="option-card">
@@ -135,7 +154,7 @@
                                 <div class="card-content"><i data-lucide="user"></i><span>selbstbewohnt</span></div>
                             </label>
                             <label class="option-card">
-                                <input type="radio" name="nutzung" value="vermietet">
+                                <input type="radio" name="nutzung" value="vermietet" required>
                                 <div class="card-content"><i data-lucide="users"></i><span>vermietet</span></div>
                             </label>
                         </div>
@@ -145,9 +164,9 @@
                         </div>
                     </div>
 
-                    <!-- Step 4: Wo befindet sich das Objekt? -->
-                    <div class="form-step" id="step-4">
-                        <h3>Objekt-Standort</h3>
+                    <!-- Step 5: Wo befindet sich das Objekt? -->
+                    <div class="form-step" id="step-5">
+                        <h3>Wo befindet sich das Objekt?</h3>
                         <div class="form-group">
                             <label for="zipcode">PLZ des Objekts</label>
                             <div class="input-with-icon">
@@ -162,8 +181,27 @@
                         </div>
                     </div>
 
-                    <!-- Step 5: Hast du deine Wunschimmobilie schon besichtigt? -->
-                    <div class="form-step" id="step-5">
+                    <!-- Step 6: Grundstück & Wohnfläche -->
+                    <div class="form-step" id="step-6">
+                        <h3>Angaben zur Fläche</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="grundstueck_qm">Grundstück (qm)</label>
+                                <input type="number" id="grundstueck_qm" name="grundstueck_qm" placeholder="z.B. 450" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="wohnflaeche_qm">Wohnfläche (qm)</label>
+                                <input type="number" id="wohnflaeche_qm" name="wohnflaeche_qm" placeholder="z.B. 140" required>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-text btn-prev"><i data-lucide="arrow-left"></i> Zurück</button>
+                            <button type="button" class="btn btn-primary btn-next">Weiter <i data-lucide="arrow-right"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Step 7: Status der Immobilie? -->
+                    <div class="form-step" id="step-7">
                         <h3>Status der Immobilie?</h3>
                         <div class="options-grid">
                             <label class="option-card">
@@ -171,15 +209,15 @@
                                 <div class="card-content"><span>Objekt gefunden</span></div>
                             </label>
                             <label class="option-card">
-                                <input type="radio" name="besichtigungsstatus" value="Entscheidung getroffen">
+                                <input type="radio" name="besichtigungsstatus" value="Entscheidung getroffen" required>
                                 <div class="card-content"><span>Entscheidung gefallen</span></div>
                             </label>
                             <label class="option-card">
-                                <input type="radio" name="besichtigungsstatus" value="Notartermin geplant">
+                                <input type="radio" name="besichtigungsstatus" value="Notartermin geplant" required>
                                 <div class="card-content"><span>Notartermin geplant</span></div>
                             </label>
                             <label class="option-card">
-                                <input type="radio" name="besichtigungsstatus" value="Auf Objektsuche">
+                                <input type="radio" name="besichtigungsstatus" value="Auf Objektsuche" required>
                                 <div class="card-content"><span>noch auf Objektsuche</span></div>
                             </label>
                         </div>
@@ -189,8 +227,27 @@
                         </div>
                     </div>
 
-                    <!-- Step 6: Finanzierungsbedarfsrechner -->
-                    <div class="form-step" id="step-6">
+                    <!-- Step 8: Anzahl Darlehensnehmer -->
+                    <div class="form-step" id="step-8">
+                        <h3>Wie viele Darlehensnehmer?</h3>
+                        <div class="options-grid">
+                            <label class="option-card">
+                                <input type="radio" name="darlehensnehmer_anzahl" value="1 Person" required>
+                                <div class="card-content"><i data-lucide="user"></i><span>1 Person</span></div>
+                            </label>
+                            <label class="option-card">
+                                <input type="radio" name="darlehensnehmer_anzahl" value="2 Personen" required>
+                                <div class="card-content"><i data-lucide="users"></i><span>2 Personen</span></div>
+                            </label>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-text btn-prev"><i data-lucide="arrow-left"></i> Zurück</button>
+                            <button type="button" class="btn btn-primary btn-next" disabled>Weiter <i data-lucide="arrow-right"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Step 9: Finanzierungsbedarf -->
+                    <div class="form-step" id="step-9">
                         <h3>Finanzierungsbedarf</h3>
                         <div class="form-group">
                             <label for="kaufpreis">Kaufpreis der Immobilie (€)</label>
@@ -199,58 +256,50 @@
                                 <input type="number" id="kaufpreis" name="kaufpreis" value="450000" step="5000" required>
                             </div>
                         </div>
+                        
+                        <div class="form-group">
+                            <label>Eigenkapital-Anteil (%)</label>
+                            <div class="ek-selection-grid">
+                                <button type="button" class="ek-btn" data-pct="0">unter 10%</button>
+                                <button type="button" class="ek-btn" data-pct="10">10% EK</button>
+                                <button type="button" class="ek-btn active" data-pct="20">20% EK</button>
+                                <button type="button" class="ek-btn" data-pct="30">30% EK</button>
+                                <button type="button" class="ek-btn" data-pct="40">40% EK</button>
+                                <button type="button" class="ek-btn" data-pct="50">50% +</button>
+                            </div>
+                            <div class="input-with-icon">
+                                <i data-lucide="piggy-bank"></i>
+                                <input type="number" id="eigenkapital" name="eigenkapital" value="90000" step="5000" required>
+                            </div>
+                        </div>
+
                         <div class="form-group">
                             <label>Fällt Maklerprovision an?</label>
                             <div style="display: flex; gap: 1rem; margin-top: 0.5rem;">
                                 <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
-                                    <input type="radio" name="makler" value="Ja" checked> Ja
+                                    <input type="radio" name="makler" value="Ja" checked required> Ja
                                 </label>
                                 <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
-                                    <input type="radio" name="makler" value="Nein"> Nein
+                                    <input type="radio" name="makler" value="Nein" required> Nein
                                 </label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="modernisierung">Modernisierungskosten? (€)</label>
-                            <div class="input-with-icon">
-                                <i data-lucide="wrench"></i>
-                                <input type="number" id="modernisierung" name="modernisierung" value="0" step="1000">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="eigenkapital">Vorhandenes Eigenkapital (€)</label>
-                            <div class="input-with-icon">
-                                <i data-lucide="piggy-bank"></i>
-                                <input type="number" id="eigenkapital" name="eigenkapital" value="50000" step="1000">
                             </div>
                         </div>
                         
                         <div class="live-calc-result" style="background: rgba(15, 23, 42, 0.05); padding: 1.25rem; border-radius: var(--radius-md); margin: 1.5rem 0; border: 1px solid var(--border-color);">
                             <p style="font-weight: 600; font-size: 0.875rem; color: var(--text-light); margin-bottom: 0.25rem; text-transform: uppercase; letter-spacing: 0.5px;">Voraussichtlicher Darlehensbedarf</p>
                             <input type="hidden" name="darlehensbedarf" id="hdn-darlehen">
-            <span id="live-darlehen" style="font-size: 2rem; font-weight: 800; color: var(--primary-color);">0 €</span>
+                            <span id="live-darlehen" style="font-size: 2rem; font-weight: 800; color: var(--primary-color);">0 €</span>
                         </div>
-                        
+
                         <div class="form-actions">
                             <button type="button" class="btn btn-text btn-prev"><i data-lucide="arrow-left"></i> Zurück</button>
                             <button type="button" class="btn btn-primary btn-next">Weiter <i data-lucide="arrow-right"></i></button>
                         </div>
                     </div>
 
-                    <!-- Step 7: Persönliche Daten -->
-                    <div class="form-step" id="step-7">
+                    <!-- Step 10: Kontaktdaten -->
+                    <div class="form-step" id="step-10">
                         <h3>Ihre Kontaktdaten</h3>
-                        <p class="step-desc" style="margin-bottom: 2rem; color: var(--text-main); font-weight: 500; background: #eff6ff; padding: 0.75rem; border-radius: 8px; border-left: 4px solid var(--primary-color);">
-                            <strong>Wichtiger Hinweis:</strong> Bitte geben Sie Ihre Daten wahrheitsgemäß an, damit unser Expertenteam Sie für die kostenlose Beratung zuverlässig erreichen kann.
-                        </p>
-                        <div class="form-group">
-                            <label>Anrede</label>
-                            <select name="anrede" required>
-                                <option value="Herr">Herr</option>
-                                <option value="Frau">Frau</option>
-                                <option value="Divers">Divers</option>
-                            </select>
-                        </div>
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="firstname">Vorname</label>
@@ -262,40 +311,12 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="email">E-Mail Adresse</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
                             <label for="phone">Telefonnummer</label>
                             <input type="tel" id="phone" name="phone" required>
                         </div>
                         <div class="form-group">
-                            <label>Art der Beschäftigung</label>
-                            <select name="beschaeftigung" required>
-                                <option value="Angestellter">Angestellter / Angestellte</option>
-                                <option value="Beamter">Beamter / Beamte</option>
-                                <option value="Minijob">Minijob</option>
-                                <option value="Selbststaendiger">Selbstständiger</option>
-                                <option value="Freiberufler">Freiberufler</option>
-                                <option value="Rentner">Rentner</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="income">Monatliches Haushaltsnettoeinkommen (€)</label>
-                            <div class="input-with-icon">
-                                <i data-lucide="euro"></i>
-                                <input type="number" id="income" name="income" placeholder="z.B. 3500" required step="50">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label>Familienstand</label>
-                            <select name="familienstand" required>
-                                <option value="Ledig">Ledig</option>
-                                <option value="Verheiratet">Verheiratet</option>
-                                <option value="Geschieden">Geschieden</option>
-                                <option value="Verwitwet">Verwitwet</option>
-                                <option value="Eingetragene Lebenspartnerschaft">Eingetragene Lebenspartnerschaft</option>
-                            </select>
+                            <label for="email">E-Mail Adresse</label>
+                            <input type="email" id="email" name="email" required>
                         </div>
                         <div class="form-actions">
                             <button type="button" class="btn btn-text btn-prev"><i data-lucide="arrow-left"></i> Zurück</button>
@@ -303,24 +324,44 @@
                         </div>
                     </div>
 
-                    <!-- Step 8: Success Goal -->
-                    <div class="form-step" id="step-8">
-                        <h3>Nur noch ein Klick</h3>
-                        <p class="step-desc">Sichern Sie sich jetzt die Checkliste und vergleichen Sie gleichzeitig über 400 Banken.</p>
-                        
-                        <label class="checkbox-container">
-                            <input type="checkbox" name="consent" checked required>
-                            <span class="checkmark"></span>
-                            <span class="checkbox-text">Ich stimme zu, dass meine Daten verarbeitet werden. (Unverbindlich)</span>
-                        </label>
-
+                    <!-- Step 11: Upload -->
+                    <div class="form-step" id="step-11">
+                        <h3>Unterlagen hochladen (Optional)</h3>
+                        <p class="step-desc">Erhalten Sie ein präziseres Angebot durch den Upload Ihrer Unterlagen.</p>
+                        <div class="upload-area">
+                            <div class="upload-box" id="drop-zone">
+                                <i data-lucide="upload-cloud"></i>
+                                <p>Klicken oder Dateien ziehen</p>
+                                <input type="file" name="attachment" id="file-input" multiple style="display: none;">
+                            </div>
+                            <div class="file-list" id="file-list"></div>
+                        </div>
                         <div class="form-actions">
                             <button type="button" class="btn btn-text btn-prev"><i data-lucide="arrow-left"></i> Zurück</button>
-                            <button type="submit" class="btn btn-primary">Checkliste jetzt anfordern <i data-lucide="check-circle"></i></button>
+                            <button type="button" class="btn btn-primary btn-next">Ohne Upload weiter <i data-lucide="arrow-right"></i></button>
                         </div>
                     </div>
 
-                    <!-- Success -->
+                    <!-- Step 12: Abschluss -->
+                    <div class="form-step" id="step-12">
+                        <h3>Prüfung starten</h3>
+                        <div class="trust-checklist">
+                            <div class="trust-item"><i data-lucide="shield-check"></i> 100% kostenloses Angebot</div>
+                            <div class="trust-item"><i data-lucide="search"></i> Kostenlose Objektbewertung</div>
+                            <div class="trust-item"><i data-lucide="upload"></i> Unterlagen einfach hochladen</div>
+                        </div>
+                        <label class="checkbox-container">
+                            <input type="checkbox" name="consent" checked required>
+                            <span class="checkmark"></span>
+                            <span class="checkbox-text">Ich stimme der Datenverarbeitung zu.</span>
+                        </label>
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-text btn-prev"><i data-lucide="arrow-left"></i> Zurück</button>
+                            <button type="submit" class="btn btn-primary">Jetzt anfragen <i data-lucide="check-circle"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Erfolgsmeldung -->
                     <div class="form-step" id="step-success">
                         <div class="success-content">
                             <div class="success-icon-wrap">
@@ -328,11 +369,8 @@
                                 <div class="success-icon-check"><i data-lucide="check"></i></div>
                             </div>
                             <h3>Anfrage erfolgreich!</h3>
-                            <p>Vielen Dank für Ihr Vertrauen. Sie können Ihre Checkliste nun direkt über den folgenden Button herunterladen.</p>
-                            <div style="display: flex; flex-direction: column; gap: 1rem; align-items: center;">
-                                <a href="checkliste.pdf" download class="btn btn-success">Checkliste (PDF) herunterladen <i data-lucide="download"></i></a>
-                                <a href="index.html" class="btn btn-text" style="margin-top: 0.5rem;">Zurück zur Startseite</a>
-                            </div>
+                            <p>Wir melden uns in Kürze.</p>
+                            <a href="index.html" class="btn btn-success">Zur Startseite</a>
                         </div>
                     </div>
                 </form>
