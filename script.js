@@ -92,14 +92,24 @@ document.addEventListener('DOMContentLoaded', () => {
             maklerFee = kp * 0.0357; 
         }
         
-        const total = kp + maklerFee - ek;
-        const display = document.getElementById('live-darlehen');
-        const hiddenField = document.getElementById('hdn-darlehen');
-
-        const formatted = new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(Math.max(0, total));
+        const total = Math.max(0, kp + maklerFee - ek);
         
-        if(display) display.innerText = formatted;
-        if(hiddenField) hiddenField.value = formatted;
+        // Zinsspanne 3.5 - 4.5% => Annahme 4.0% Zinssatz + 2% Tilgung = 6% p.a.
+        const monthlyRate = (total * (4.0 + 2.0) / 100) / 12;
+
+        const displayDarlehen = document.getElementById('live-darlehen');
+        const displayRate = document.getElementById('live-rate');
+        const hiddenDarlehen = document.getElementById('hdn-darlehen');
+        const hiddenRate = document.getElementById('hdn-rate');
+
+        const formattedDarlehen = new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(total);
+        const formattedRate = 'ca. ' + new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(monthlyRate);
+        
+        if(displayDarlehen) displayDarlehen.innerText = formattedDarlehen;
+        if(hiddenDarlehen) hiddenDarlehen.value = formattedDarlehen;
+        
+        if(displayRate) displayRate.innerText = formattedRate;
+        if(hiddenRate) hiddenRate.value = formattedRate;
 
         // Update active state of EK buttons
         const currentPct = kp > 0 ? (ek / kp) * 100 : 0;
@@ -250,7 +260,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     function setupStep(stepNum) {
-        if(stepNum === 9) {
+        if(stepNum === 9 || stepNum === 12) {
             calculateLive();
         }
         const firstInput = document.querySelector(`#step-${stepNum} input:not([type="hidden"]), #step-${stepNum} select`);
